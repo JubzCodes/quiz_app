@@ -15,7 +15,7 @@ const dbParams = require("./lib/db.js");
 //************************************************** */
 //This is how to import a file from the routes file to the server
 const homeRoute = require("./routes/home")
-const createRoute = require("./routes/create")
+const quizRoute = require("./routes/quiz")
 const userRoute = require("./routes/users")
 
 
@@ -55,9 +55,9 @@ const widgetsRoutes = require("./routes/widgets");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 //HOME ROUTE ****
-app.use("/api/", homeRoute());
+app.use("/", homeRoute());
 //CREATE ROUTE*********
-app.use("/api/", createRoute());
+app.use("/quiz/", quizRoute());
 
 // Note: mount other resources here, using the same pattern above
 
@@ -66,7 +66,7 @@ app.use("/api/", createRoute());
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("home");
 });
 
 app.listen(PORT, () => {
