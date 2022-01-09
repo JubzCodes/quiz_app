@@ -3,7 +3,7 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/new", (req, res) => {
-    res.send("this is a test CREATE!")
+    res.render("createquiz")
   })
 
   router.post("/new", (req, res) => {
