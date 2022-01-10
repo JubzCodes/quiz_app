@@ -7,10 +7,13 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <!-- <link rel="stylesheet" href="/styles/home.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/styles/home.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
 
   <!-- External Google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap" rel="stylesheet">
 
   <!-- App JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -22,22 +25,39 @@
 
 <body>
 
-  <header>
+  <header class=navigator>
     <!-- nav bar goes somewhere here inside the header-->
-    <a>CREATE |</a>
-    <a>HOME |</a>
-    <a>SEARCH</a>
+    <div class=nav-fonts>
+    <a id=home>HOME </a>
+    <a id=create>CREATE </a>
+    <a id=search>SEARCH</a>
+  </div>
   </header>
   <hr>
 
   <!-- main container with all of the quizzes-->
   <main>
-    <section>
+    <section class=welcome>
       <h1>Welcome to QuikQuiz</h1>
-      <hr>
+      <br>
+
+      <section>Try Quiz Now!</section>
     </section>
 
-    <section>
+    <section id= "categories">
+      <h5>Test your inner genius with instant quizzes on various topics!</h5>
+      <article>
+        <div>MATH</div>
+        <div>ENGLISH</div>
+        <div>SCIENCE</div>
+        <div>AND MANY MORE!</div>
+      </article>
+
+
+    </section>
+
+    <section id = "quizzes">
+      <h4>Click on any of the following boxes to try a Quik Quiz now!</h4>
       <article>
         <div>
           <h3>Quiz 1</h3>
@@ -97,9 +117,17 @@
           </footer>
         </div>
       </article>
-
     </section>
   </main>
+  <br>
+
+  <footer id=footer-end>
+    <p>
+      “The only true wisdom is in knowing you know nothing.”― Socrates
+    </p>
+    <br>
+      <h6>Jan 2022 - Devendra, Jaden, Nadia</h6>
+  </footer>
 
 </body>
 </html>
