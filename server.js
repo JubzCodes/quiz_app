@@ -57,7 +57,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 //HOME ROUTE ****
 app.use("/", homeRoute());
 //CREATE ROUTE*********
-app.use("/quiz/", quizRoute());
+app.use("/quiz", quizRoute());
 
 // Note: mount other resources here, using the same pattern above
 
