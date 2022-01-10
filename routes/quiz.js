@@ -6,14 +6,15 @@ module.exports = (db) => {
     res.render("createquiz")
   })
 
-  router.post("/new", (req, res) => {
-    res.send("this is a test CREATE!")
+  router.get("/attempt", (req, res) => {
+    res.send("this is a test ATTEMPT!")
   })
   router.get("/:id", (req, res) => {
     console.log(req.params)
     const { id } = req.params
     res.send(`ID ${id}`)
   })
+
   //ADD SQL TO ADD INFO TO DATABASE
 
   return router;
