@@ -7,7 +7,7 @@ module.exports = (db) => {
   })
 
   router.get("/attempt", (req, res) => {
-    res.send("this is a test ATTEMPT!")
+    res.render("attempt_results")
   })
   router.get("/:id", (req, res) => {
     console.log(req.params)
