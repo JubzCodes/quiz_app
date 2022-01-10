@@ -10,12 +10,53 @@
 
 <body>
   <h1> MAKE A NEW QUIZ</h1>
-  <form class="form-inline" action="/new" method="POST">
-    <p><input type="text" name="question" placeholder="question" /></p>
-    <p><input type="text" name="answer" placeholder="answer" /></p>
-    <p><input type="text" name="category" placeholder="catagory" /></p>
-    <button>Submit!</button>
-  </form>
+  <div id="create-quiz-form">
+    <form action="/new" method="POST">
+
+      <div>
+      <div>
+        <label for="question">Question:</label>
+        <input type="text" name="question" placeholder="enter a question here"/>
+      </div>
+
+      <div>
+        <label for="answer">Answer:</label>
+        <input type="text" name="answer" placeholder="enter an answer here"/>
+      </div>
+
+        <div id=category-choice>
+          <label> Choose a category</label>
+
+          <input type="radio" name="category-1" value="choice-1" />
+          <label for="category-1">Math</label>
+
+          <input type="radio" name="category-1" value="choice-1" />
+          <label for="category-1">English</label>
+
+          <input type="radio" name="category-1" value="choice-1" />
+          <label for="category-1">Science</label>
+
+          <input type="radio" name="category-1" value="choice-1" />
+          <label for="category-1">Other</label>
+        </div>
+
+        <div>
+          <button>Submit!</button>
+        </div>
+
+
+
+
+
+      </div>
+
+
+
+
+    </form>
+  </div>
+
+
 
 </body>
 
