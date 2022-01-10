@@ -55,7 +55,7 @@ const widgetsRoutes = require("./routes/widgets");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 //HOME ROUTE ****
-app.use("/", homeRoute());
+app.use("/", homeRoute(db));
 //CREATE ROUTE*********
 app.use("/quiz", quizRoute());
 
