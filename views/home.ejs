@@ -36,70 +36,31 @@
       <h1>Welcome to QuikQuiz</h1>
       <hr>
     </section>
+    <% for(let data of allData) { %>
 
-    <section>
-      <article>
-        <div>
-          <h3>Quiz 1</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date X 2022</div>
-          </footer>
-        </div>
-      </article>
+      <section>
+        <article>
+          <div>
+            <h3>
+              <%= data.question %>
+            </h3>
+            <footer>
+              <div>
+                <%= data.catagory %>
+              </div>
+              <div>
+                <%= data.date %>
+              </div>
+            </footer>
+          </div>
+        </article>
 
-      <article>
-        <div>
-          <h3>Quiz 2</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date Y 2022</div>
-          </footer>
-        </div>
-      </article>
+        <% } %>
 
-      <article>
-        <div>
-          <h3>Quiz 3</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date Z 2022</div>
-          </footer>
-        </div>
-      </article>
-
-      <article>
-        <div>
-          <h3>Quiz 4</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date A 2022</div>
-          </footer>
-        </div>
-      </article>
-
-      <article>
-        <div>
-          <h3>Quiz 5</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date B 2022</div>
-          </footer>
-        </div>
-      </article>
-
-      <article>
-        <div>
-          <h3>Quiz 6</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date C 2022</div>
-          </footer>
-        </div>
-      </article>
-
-    </section>
+          <!-- limit # of quizis to 6- 8 per page(stretch) -->
+      </section>
   </main>
 
 </body>
+
 </html>
