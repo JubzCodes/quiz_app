@@ -4,7 +4,8 @@ const router = express.Router();
 //This is out home page
 module.exports = (db) => {
   router.get("/home", (req, res) => {
-    res.send("this is a test HOME!")
+    //res.send("this is a test HOME!")
+    res.render("home");
   })
 
   //This is for quiz attempt
