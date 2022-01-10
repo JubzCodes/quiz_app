@@ -8,8 +8,8 @@ module.exports = (db) => {
   })
 
   //This is for quiz attempt
-  router.get("/:id", (req, res) => {
-    res.send("this is a QUIZ ATTEMPT")
+  router.get("/quiz", (req, res) => {
+    res.render("attemptquiz")
   })
 
 
