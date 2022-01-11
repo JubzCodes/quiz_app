@@ -37,14 +37,13 @@
     <form action="/quiz/new" method="POST">
 
       <div>
-      <div>
-        <label for="question">Question:</label>
-        <input type="text" name="question" placeholder="enter a question here" required/>
+        <label for="question">Please enter a question here:</label>
+        <input type="text" name="question" placeholder="quiz question here" required/>
         <br>
       </div>
 
       <div>
-        <label for="answer">Answer:</label>
+        <label for="answer">Enter an answer to the above question: </label>
         <!-- <input type="text" name="answer" placeholder="enter an answer here" required/> -->
         <textarea name="answer" placeholder="enter answer here" required></textarea>
         <br>
@@ -102,18 +101,14 @@
 
       <br>
     </div>
-
-        <div>
-          <button>Share Quiz</button>
-          <button id=submit-new-quiz href="/quiz">Submit!</button>
-          <!-- this doesnt work because we need a post /quiz route -->
-        </div>
-
-
-
-
-
       </div>
+
+      <div class="buttons">
+        <button>Share Quiz</button>
+        <button id=submit-new-quiz href="/quiz">Submit!</button>
+        <!-- this doesnt work because we need a post /quiz route -->
+      </div>
+
     </form>
   </div>
 
