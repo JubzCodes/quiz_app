@@ -42,9 +42,9 @@
 /* Style the header */
 .header {
   width: 100%;
-  height:400px;
+  height:500px;
   background-color:  #6563ce;;
-  // background-image: url("https://www.transparenttextures.com/patterns/escheresque.png");
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   color:white;
   padding: 30px;
   font-family: 'Ribeye', cursive;
@@ -66,6 +66,7 @@
   width: 33.33%;
   padding: 10px;
   height: 300px;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
 
 
@@ -98,7 +99,8 @@
 
 //style the footer
 .footer {
-  background-color: #F2F2F2;
+  // background-color: #F2F2F2;
+  background-color: #79c0e0;
   padding: 10px;
 }
 
