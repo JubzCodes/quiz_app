@@ -57,7 +57,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 //HOME ROUTE ****
 app.use("/", homeRoute(db));
 //CREATE ROUTE*********
-app.use("/quiz", quizRoute());
+app.use("/quiz", quizRoute(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -66,7 +66,7 @@ app.use("/quiz", quizRoute());
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("home");
+  res.redirect("home");
 });
 
 app.listen(PORT, () => {

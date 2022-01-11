@@ -8,11 +8,16 @@ module.exports = (db) => {
     console.log("DB QUERY IS RUNNING")
     db.query("SELECT question, category, date FROM quiz")
       .then(result => {
-        console.log(result.rows)
-        // console.log("question", result)
+        // console.log(result.rows)
+        console.log("question", result)
         const templateVars = { allData: result.rows }
         res.render("home", templateVars)
       })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   })
 
   //This is for quiz attempt
