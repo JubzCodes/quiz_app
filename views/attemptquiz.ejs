@@ -33,7 +33,7 @@
   <main class = "main">
     <div>
       <label for="name">Please enter a name</label>
-      <input type="text" name="name" placeholder="name" required/>
+      <input type="text" name="name" placeholder="nickname" required/>
     </div>
 
     <br>
@@ -54,7 +54,8 @@
 
         <div class = "buttons">
           <button>Share Quiz</button>
-          <button>Submit</button>
+          <button id=submit-new-quiz href="/quiz/attempt">Submit!</button>
+          <!-- this doesnt work beceause we need a post /quiz request -->
         </div>
         </form>
     </section>
