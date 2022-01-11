@@ -14,7 +14,7 @@ module.exports = (db) => {
     const { id } = req.params
     // res.send(`ID ${id}`)
 
-    db.query(`SELECT question, category, date FROM quiz WHERE id = ${id}`)
+    db.query(`SELECT  question, category, date FROM quiz WHERE id = ${id}`)
       .then(result => {
         console.log(result.rows)
 
@@ -24,6 +24,6 @@ module.exports = (db) => {
   })
 
   //ADD SQL TO ADD INFO TO DATABASE
-
+  //this is for git
   return router;
 };
