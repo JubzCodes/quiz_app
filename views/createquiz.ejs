@@ -44,21 +44,29 @@
         <textarea name="answer" placeholder="enter answer here" required></textarea>
       </div>
 
-        <div id=category-choice>
-          <label> Choose a category</label>
+        <div id=quiz-settings>
+          <label> Please select a privacy setting for your quiz</label>
 
-          <input type="radio" name="category-1" value="choice-1" />
-          <label for="category-1">Math</label>
+          <input type="radio" name="privacy" value="choice-1" required/>
+          <label for="privacy">Private</label>
 
-          <input type="radio" name="category-1" value="choice-2" />
-          <label for="category-1">English</label>
-
-          <input type="radio" name="category-1" value="choice-3" />
-          <label for="category-1">Science</label>
-
-          <input type="radio" name="category-1" value="choice-4" />
-          <label for="category-1">Other</label>
+          <input type="radio" name="privacy" value="choice-2" required />
+          <label for="privacy">Public</label>
         </div>
+
+        <div>
+          <label for="category">Choose a category:</label>
+          <select id=category required>
+            <option value=“0” selected disabled></option>
+            <option value=“math”>Math</option>
+            <option value=“sci”>Science</option>
+            <option value=“eng”>English</option>
+            <option value=“art”>Art</option>
+            <option value=“geo”>Geography</option>
+            <option value=“lit”>Literature</option>
+            <option value=“other”>Other</option>
+            </select>
+      </div>
 
         <div>
           <button>Share Quiz</button>
