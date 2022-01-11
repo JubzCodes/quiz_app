@@ -14,25 +14,35 @@
   <div></div>
   <header></header>
   <br>
-  <main class = "main">
-    <section class = "labels">
-      <p>Category</p>
-      <p>File name</p>
-      <p>Date Created</p>
-    </section>
-    <br>
-    <form class = "form" method="post" action=" ">
-    <section class = "quiz">
-      <h3>Question</h3>
-      <textarea></textarea>
-    </section>
-    <br>
-    <section class = "buttons">
-      <button>Share Quiz</button>
-      <button>Submit</button>
-    </section>
-    </form>
-  </main>
+  <% for(let each of data) { %>
+    <main class="main">
+      <section class="labels">
+        <p>
+          <%= each.category %>
+        </p>
+        <p> QUIZ #
+          <%= id %>
+        </p>
+        <p>
+          <%= each.date %>
+        </p>
+      </section>
+      <br>
+      <form class="form" method="post" action=" ">
+        <section class="quiz">
+          <h3>
+            <%= each.question %>
+          </h3>
+          <textarea></textarea>
+          <% } %>
+        </section>
+        <br>
+        <section class="buttons">
+          <button>Share Quiz</button>
+          <button>Submit</button>
+        </section>
+      </form>
+    </main>
 </body>
 
 </html>

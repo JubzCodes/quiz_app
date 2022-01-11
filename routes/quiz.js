@@ -12,7 +12,15 @@ module.exports = (db) => {
   router.get("/:id", (req, res) => {
     console.log(req.params)
     const { id } = req.params
-    res.send(`ID ${id}`)
+    // res.send(`ID ${id}`)
+
+    db.query(`SELECT question, category, date FROM quiz WHERE id = ${id}`)
+      .then(result => {
+        console.log(result.rows)
+
+        // console.log("question", result)
+        res.render("attemptquiz", { id, data: result.rows })
+      })
   })
 
   //ADD SQL TO ADD INFO TO DATABASE
