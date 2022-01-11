@@ -10,28 +10,44 @@
 </head>
 
 <body>
-  <nav>NAV BAR</nav>
-  <div></div>
-  <header></header>
-  <br>
+  <nav> INSERT NAV BAR HERE</nav>
+  <hr>
+
+  <h1>Try this Quiz!</h1>
+
   <main class = "main">
+    <div>
+      <label for="name">Please enter a name</label>
+      <input type="text" name="name" placeholder="name" required/>
+    </div>
+
+    <br>
+
+    <section>
+      <form class = "form" method="post" action=" ">
+        <div class = "quiz">
+          <div>
+            <label for="question">What is the answer to this question?</label>
+          </div>
+
+          <div>
+            <textarea name="answer" placeholder="enter answer here" required></textarea>
+          </div>
+        </div>
+
+        <br>
+
+        <div class = "buttons">
+          <button>Share Quiz</button>
+          <button>Submit</button>
+        </div>
+        </form>
+    </section>
+
     <section class = "labels">
       <p>Category</p>
-      <p>File name</p>
       <p>Date Created</p>
     </section>
-    <br>
-    <form class = "form" method="post" action=" ">
-    <section class = "quiz">
-      <h3>Question</h3>
-      <textarea></textarea>
-    </section>
-    <br>
-    <section class = "buttons">
-      <button>Share Quiz</button>
-      <button>Submit</button>
-    </section>
-    </form>
   </main>
 </body>
 

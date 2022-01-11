@@ -9,6 +9,8 @@
 </head>
 
 <body>
+  <nav> INSERT NAV BAR HERE</nav>
+  <hr>
   <h1> MAKE A NEW QUIZ</h1>
   <div id="create-quiz-form">
     <form action="/new" method="POST">
@@ -16,12 +18,13 @@
       <div>
       <div>
         <label for="question">Question:</label>
-        <input type="text" name="question" placeholder="enter a question here"/>
+        <input type="text" name="question" placeholder="enter a question here" required/>
       </div>
 
       <div>
         <label for="answer">Answer:</label>
-        <input type="text" name="answer" placeholder="enter an answer here"/>
+        <!-- <input type="text" name="answer" placeholder="enter an answer here" required/> -->
+        <textarea name="answer" placeholder="enter answer here" required></textarea>
       </div>
 
         <div id=category-choice>
@@ -41,7 +44,9 @@
         </div>
 
         <div>
+          <button>Share Quiz</button>
           <button>Submit!</button>
+
         </div>
 
 
