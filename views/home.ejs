@@ -4,6 +4,9 @@
 <head>
   <title>Home Page</title>
 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- App CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -25,109 +28,80 @@
 
 <body>
 
-  <header class=navigator>
-    <!-- nav bar goes somewhere here inside the header-->
-    <div class=nav-fonts>
-    <a id=home>HOME </a>
-    <a id=create>CREATE </a>
-    <a id=search>SEARCH</a>
+    <!-- nav bar-->
+    <div class="navigator">
+      <a id=search href="#">SEARCH</a>
+      <a id=create href="#">CREATE </a>
+      <a id=home href="#">HOME </a>
+
   </div>
+
+  <header>
+    <section class="header">
+      <h1>Welcome to QuikQuiz</h1>
+      <br>
+
+      <div>
+        <button>Try a QuikQuiz Now!</button>
+      </div>
+    </section>
   </header>
+
 
 
   <!-- main container with all of the quizzes-->
   <main>
-    <section class=welcome>
-      <h1>Welcome to QuikQuiz</h1>
-      <br>
-
-      <section>Try Quiz Now!</section>
+    <section class="categories">
+      <p>Test your inner genius with instant quizzes on various topics!</p>
+      <article class="subject">
+        <div style="background-color:#D6E6F4">MATH</div>
+        <div style="background-color:#D6E6F4">ENGLISH</div>
+        <div style="background-color:#D6E6F4">SCIENCE</div>
+        <div style="background-color:#D6E6F4">AND MANY MORE!</div>
+      </article>
     </section>
 
-    <section id= "categories">
-      <h5>Test your inner genius with instant quizzes on various topics!</h5>
-      <article>
-        <div>MATH</div>
-        <div>ENGLISH</div>
-        <div>SCIENCE</div>
-        <div>AND MANY MORE!</div>
-      </article>
-
-
-    </section>
-
-    <section id = "quizzes">
-      <h4>Click on any of the following boxes to try a Quik Quiz now!</h4>
-      <article>
-        <!-- <img src="http://" height="100px" width="100px" alt="There is supposed to be an image here"> -->
-        <div>
-          <h3>Quiz 1</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date X 2022</div>
-          </footer>
+    <section class = "quizzes">
+      <div class="row">
+        <h1>Click on any of the following boxes to try a Quik Quiz now!</h1>
+        <div class="column" style="background-color:#6563ce">
+          <!-- Column1 -->
+          <article>
+            <div>
+              <button><h1>Quiz1</h1></button>
+              <footer class="quiz-info">
+                <div>Category</div>
+                <div>Date X 2022</div>
+              </footer>
+            </div>
+          </article>
         </div>
-      </article>
-
-      <article>
-        <div>
-          <h3>Quiz 2</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date Y 2022</div>
-          </footer>
+        <div class="column" style="background-color: #66D6F7">
+          Column2
         </div>
-      </article>
-
-      <article>
-        <div>
-          <h3>Quiz 3</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date Z 2022</div>
-          </footer>
+        <div class="column" style="background-color:#F2F2F2;">
+          Column3
         </div>
-      </article>
-
-      <article>
-        <div>
-          <h3>Quiz 4</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date A 2022</div>
-          </footer>
+        <div class="column" style="background-color:#F2F2F2;">
+          Column4
         </div>
-      </article>
-
-      <article>
-        <div>
-          <h3>Quiz 5</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date B 2022</div>
-          </footer>
+        <div class="column" style="background-color:#6563ce;">
+          Column5
         </div>
-      </article>
-
-      <article>
-        <div>
-          <h3>Quiz 6</h3>
-          <footer>
-            <div>Category</div>
-            <div>Date C 2022</div>
-          </footer>
+        <div class="column" style="background-color:#66D6F7;">
+          Column6
         </div>
-      </article>
+      </div>
     </section>
   </main>
   <br>
 
-  <footer id=footer-end>
+  <footer class=footer>
     <p>
       “The only true wisdom is in knowing you know nothing.”― Socrates
     </p>
     <br>
-      <h6>Jan 2022 - Devendra, Jaden, Nadia</h6>
+    <p>Jan 2022 - Devendra, Jaden, Nadia</p>
   </footer>
 
 </body>

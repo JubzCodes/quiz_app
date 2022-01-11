@@ -1,34 +1,114 @@
 // body {
 //   font-family: 'Roboto', sans-serif;
 // }
+// .navigator {
+//   height: 200px;
+//   width: 100%;
+//   background-color: #6563ce;
+//   display: flex;
+//   flex-direction:row;
+//   align-items: center;
+//   justify-content: right;
+//   z-index: auto;
+//   // padding-top: 10%;
+//   margin-top: 20px; //likkle bit of space at the very top
+//   color: white;
+// }
+
+* {
+  box-sizing: border-box;
+}
+
 .navigator {
-  height: 200px;
-  width: 100%;
-  background-color: #6563ce;
-  display: flex;
-  flex-direction:row;
-  align-items: center;
-  justify-content: right;
-  z-index: auto;
-  // padding-top: 10%;
-  margin-top: 20px; //likkle bit of space at the very top
-  color: white;
-
-
+  overflow: hidden;
+  background-color: #66D6F7;
 }
 
+/* Style the topnav links */
+.navigator a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/* Change color on hover */
+.navigator a:hover {
+  background-color: #4947C8;
+  color: black;
+}
 
-.welcome {
+/* Style the header */
+.header {
   width: 100%;
-  height:500px;
-  background-color: #2f1bac;
-  background-image: url("https://www.transparenttextures.com/patterns/escheresque.png");
+  height:400px;
+  background-color:  #6563ce;;
+  // background-image: url("https://www.transparenttextures.com/patterns/escheresque.png");
   color:white;
+  padding: 30px;
   font-family: 'Ribeye', cursive;
-
-
-
+  text-align: center;
 }
+
+/* Style the categories section*/
+
+.subject {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+
+.categories {
+  background-color: #F2F2F2;
+  padding: 10px;
+  height: 150px;
+
+  }
+
+.quizzes {
+  text-align: center;
+}
+
+
+//style the footer
+.footer {
+  background-color: #F2F2F2;
+  padding: 10px;
+}
+
+p {
+  color: black;
+  text-align: center;
+}
+
+
+
 // body {
 //   display: flex;
 //   justify-content: center;
@@ -46,22 +126,3 @@
 //     rgb(97, 113, 255) 100%
 //   );
 // }
-
-#categories {
-  width: 100%;
-  display: inline-block;
-
-  background-color: #F2F2F2;
-}
-
-#quizzes {
-  background-color: #D6E6F4;
-}
-
-p {
-  color: black;
-}
-
-#footer-end {
-  background-color: #F2F2F2;
-}
