@@ -1,43 +1,7 @@
 // body {
 //   font-family: 'Roboto', sans-serif;
-// }
-// .navigator {
-//   height: 200px;
-//   width: 100%;
-//   background-color: #6563ce;
-//   display: flex;
-//   flex-direction:row;
-//   align-items: center;
-//   justify-content: right;
-//   z-index: auto;
-//   // padding-top: 10%;
-//   margin-top: 20px; //likkle bit of space at the very top
-//   color: white;
-// }
 
-* {
-  box-sizing: border-box;
-}
-
-.navigator {
-  overflow: hidden;
-  background-color: #66D6F7;
-}
-
-/* Style the topnav links */
-.navigator a {
-  float: right;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-/* Change color on hover */
-.navigator a:hover {
-  background-color: #4947C8;
-  color: black;
-}
+/* Navigator moved to layout page" */
 
 /* Style the header */
 .header {
