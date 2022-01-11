@@ -31,14 +31,14 @@
 <main class = "main">
 
   <label for="create-quiz-form">
-    <h1 style="color:#D6E6F4; margin-top:50px"> MAKE A NEW QUIZ</h1>
+    <h1 style="color:white; margin-top:50px"> MAKE A NEW QUIZ</h1>
   </label>
   <div id="create-quiz-form">
     <form action="/quiz/new" method="POST">
 
       <div>
         <label for="question">Please enter a question here:</label>
-        <input type="text" name="question" placeholder="quiz question here" required/>
+        <textarea name="question" placeholder="quiz question here" required></textarea>
         <br>
       </div>
 
@@ -66,7 +66,7 @@
           <!-- <select name=category onchange='checkvalue(this.value)' required> -->
 
             <!-- method2 -->
-          <<select name=category onchange="showfield(this.options[this.selectedIndex].value)" required>
+          <select name=category onchange="showfield(this.options[this.selectedIndex].value)" required>
             <option value=“0” selected disabled></option>
             <option value=“math”>Math</option>
             <option value=“sci”>Science</option>
