@@ -25,11 +25,12 @@
 </head>
 
 <body>
-  <nav> INSERT NAV BAR HERE</nav>
-  <hr>
+  <!-- nav bar here -->
+  <nav> <%- include('partials/_navbar') %></nav>
+
   <h1> MAKE A NEW QUIZ</h1>
   <div id="create-quiz-form">
-    <form action="/new" method="POST">
+    <form action="/quiz/new" method="POST">
 
       <div>
       <div>
