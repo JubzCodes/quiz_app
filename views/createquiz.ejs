@@ -28,7 +28,11 @@
   <!-- nav bar here -->
   <nav> <%- include('partials/_navbar') %></nav>
 
-  <h1> MAKE A NEW QUIZ</h1>
+<main class = "main">
+
+  <label for="create-quiz-form">
+    <h1 style="color:#D6E6F4; margin-top:50px"> MAKE A NEW QUIZ</h1>
+  </label>
   <div id="create-quiz-form">
     <form action="/quiz/new" method="POST">
 
@@ -36,27 +40,34 @@
       <div>
         <label for="question">Question:</label>
         <input type="text" name="question" placeholder="enter a question here" required/>
+        <br>
       </div>
 
       <div>
         <label for="answer">Answer:</label>
         <!-- <input type="text" name="answer" placeholder="enter an answer here" required/> -->
         <textarea name="answer" placeholder="enter answer here" required></textarea>
+        <br>
       </div>
 
         <div id=quiz-settings>
-          <label> Please select a privacy setting for your quiz</label>
+          <label> Please select a privacy setting for your quiz</label><br>
 
           <input type="radio" name="privacy" value="choice-1" required/>
           <label for="privacy">Private</label>
 
-          <input type="radio" name="privacy" value="choice-2" required />
+          <input type="radio" name="privacy" value="choice-2" required/>
           <label for="privacy">Public</label>
+          <br>
         </div>
 
         <div>
           <label for="category">Choose a category:</label>
-          <select id=category required>
+          <!-- method1 -->
+          <!-- <select name=category onchange='checkvalue(this.value)' required> -->
+
+            <!-- method2 -->
+          <<select name=category onchange="showfield(this.options[this.selectedIndex].value)" required>
             <option value=“0” selected disabled></option>
             <option value=“math”>Math</option>
             <option value=“sci”>Science</option>
@@ -66,15 +77,36 @@
             <option value=“lit”>Literature</option>
             <option value=“other”>Other</option>
             </select>
-      </div>
+            <!-- the following code + JS will create a textbox to display for the option other but need to revisit -->
+            <input type="text" name="category" id="category" style='display:none'/>
+
+  <script type="text/javascript">
+  //   // Method 1
+  // function checkvalue(val) {
+  //   let element = document.getElementById('category')
+  //   if(val==="other")
+  //    element.style.display='block';
+  //   else
+  //    element.style.display='none';
+  // };
+// Method 2
+  function showfield(name){
+  let element= document.getElementById('category')
+  if(name=='Other')element.innerHTML='Other: <input type="text" name="other" />';
+  else element.innerHTML='';
+  };
+  </script>
+
+
+
+
+      <br>
+    </div>
 
         <div>
           <button>Share Quiz</button>
           <button id=submit-new-quiz href="/quiz">Submit!</button>
           <!-- this doesnt work because we need a post /quiz route -->
-
-
-
         </div>
 
 
@@ -82,14 +114,18 @@
 
 
       </div>
-
-
-
-
     </form>
   </div>
 
+</main>
 
+<footer class=footer>
+  <p>
+    “TRY SOMETHIN NEW.”
+  </p>
+  <br>
+  <p>Jan 2022 - Devendra, Jaden, Nadia</p>
+</footer>
 
 </body>
 
