@@ -57,5 +57,19 @@
 
 /* Style the footer */
 .footer {
-  background-color: #f1f1f1;
+  background-color: rgb(226, 226, 226)
+  ;
+}
+
+img {
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 50%;
+
+
 }

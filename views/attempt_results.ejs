@@ -27,25 +27,41 @@
   <nav><%- include('partials/_navbar') %></nav>
 
   <br>
-  <main class="main">
+  <main>
 
-    <section class="buttons">
-      <button>Share Quiz</button>
-      <button>Submit</button>
-    </section>
-
-    <aside>
       <section class="score">
         <h3>SCORE</h3>
-        <p>PASS</p>
-        <p>FAIL</p>
+
+        <p style="color:rgb(0, 255, 0); font-weight:bold; font-size:50px;">PASS</p>
+        <p style="color:rgb(255, 0, 0); font-weight:bold; font-size:50px;">FAIL</p>
+
       </section>
-    </aside>
 
     <br>
 
-    </form>
+    <section class="buttons">
+      <div>
+        <a id=tryRandom type="submit" href="/">
+          <button>Share Result</button>
+        </a>
+      </div>
+      <br>
+
+      <div>
+        <a id=tryRandom type="submit" href="/quiz">
+          <button>Try Another Quiz</button>
+        </a>
+      </div>
+    </section>
+
   </main>
+
+
+  <footer class=footer>
+    <img src="https://miro.medium.com/max/1062/1*MrwxBQCtoacBEFkStaGprA.png">
+    <br>
+    <p>Jan 2022 - Devendra, Jaden, Nadia</p>
+  </footer>
 </body>
 
 </html>
