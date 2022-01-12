@@ -9,9 +9,23 @@ module.exports = (db) => {
     const question = req.body.question;
     const answer = req.body.answer;
     const category = req.body.category;
-    // db.query(`INSERT INTO quiz (question, answer, category) VALUES ($1, $2, $3)`, [question, answer, category]);
-    db.query(`INSERT INTO quiz (question, answer, category) VALUES (${question}, ${answer}, ${category})`);
-    res.redirect('/home')
+     db.query(`INSERT INTO quiz (question, answer, category, date) VALUES ($1, $2, $3, current_timestamp)`, [question, answer, category])
+    // db.query(`INSERT INTO quiz (question, answer, category) VALUES (${question}, ${answer}, ${category})`)
+    .then ( result => {
+      if (result) {
+        res.redirect('/home')
+      }
+      // console.log(result);
+    })
+    .catch(err => {
+      if (err) {
+        return (
+          res
+            .status(500)
+            .json({ error: err.message })
+        );
+      }
+    });
   })
 
   router.get("/attempt", (req, res) => {

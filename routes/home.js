@@ -9,7 +9,7 @@ module.exports = (db) => {
     db.query("SELECT question, category, date FROM quiz")
       .then(result => {
         // console.log(result.rows)
-        console.log("question", result)
+        // console.log("question", result)
         const templateVars = { allData: result.rows }
         res.render("home", templateVars)
       })
