@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS quiz CASCADE;
+CREATE TABLE quiz (
+id SERIAL PRIMARY KEY,
+question VARCHAR(255),
+answer VARCHAR(255),
+category VARCHAR(255),
+date TIMESTAMP,
+Is_public BOOLEAN,
+quiz_url VARCHAR(255)
+);

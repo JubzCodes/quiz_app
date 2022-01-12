@@ -25,9 +25,10 @@
 </head>
 
 <body>
+
   <nav> <%- include('partials/_navbar') %></nav>
 
-
+  <% for(let each of data) { %>
   <main class = "main">
 
     <label for="quiz">
@@ -44,8 +45,13 @@
     <section>
       <form class = "form" method="post" action=" ">
         <div class = "quiz">
+          <p> QUIZ #
+            <%= id %>
+          </p>
           <div>
-            <label for="question">What is the answer to this question?</label>
+            <label for="question">
+              <%= each.question %>
+            </label>
           </div>
           <br>
 
@@ -65,10 +71,12 @@
     </section>
 
     <section class = "labels">
-      <p>Category</p>
-      <p>Date Created</p>
+      <p><%= each.category %></p>
+      <p><%= each.date %></p>
+
     </section>
   </main>
+  <% } %>
 
   <footer>
     <img src="https://miro.medium.com/max/810/1*7wcPoKrXNYBZYTvDcHxhhA.png"
@@ -76,6 +84,7 @@
     <br>
     <p>Jan 2022 - Devendra, Jaden, Nadia</p>
   </footer>
+
 
 </body>
 

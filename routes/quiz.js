@@ -12,10 +12,19 @@ module.exports = (db) => {
   router.get("/:id", (req, res) => {
     console.log(req.params)
     const { id } = req.params
-    res.send(`ID ${id}`)
+    // res.send(`ID ${id}`)
+
+    db.query(`SELECT  question, category, date FROM quiz WHERE id = ${id}`)
+      .then(result => {
+        console.log(result.rows)
+
+        // console.log("question", result)
+        templateVars= { id, data: result.rows }
+        res.render("attemptquiz", templateVars)
+      })
   })
 
   //ADD SQL TO ADD INFO TO DATABASE
-
+  //this is for git
   return router;
 };

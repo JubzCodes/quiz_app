@@ -58,65 +58,35 @@
       </article>
     </section>
 
+
     <section class = "quizzes">
       <div class="row">
         <h1>Click on any of the following boxes to try a Quik Quiz now!</h1>
         <div class="column" style="background-color:#6563ce">
-          <!-- Column1 -->
-          <article>
-            <div>
-              <button><h1>Quiz1</h1></button>
-              <footer class="quiz-info">
-                <div>Category</div>
-                <div>Date X 2022</div>
-              </footer>
-            </div>
-          </article>
-        </div>
-        <div class="column" style="background-color: #66D6F7">
-          Column2
-          <article>
-            <div>
-              <button><h1>Quiz2</h1></button>
-              <footer class="quiz-info">
-                <div>Category</div>
-                <div>Date X 2022</div>
-              </footer>
-            </div>
-          </article>
-        </div>
-        <div class="column" style="background-color:#79c0e0;">
-          Column3
-          <article>
-            <div>
-              <button><h1>Quiz3</h1></button>
-              <footer class="quiz-info">
-                <div>Category</div>
-                <div>Date X 2022</div>
-              </footer>
-            </div>
-          </article>
-        </div>
-        <div class="column" style="background-color:#79c0e0;">
-          Column4
-          <article>
-            <div>
-              <button><h1>Quiz4</h1></button>
-              <footer class="quiz-info">
-                <div>Category</div>
-                <div>Date X 2022</div>
-              </footer>
-            </div>
-          </article>
-        </div>
-        <div class="column" style="background-color:#6563ce;">
-          Column5
-        </div>
-        <div class="column" style="background-color:#66D6F7;">
-          Column6
-        </div>
+<!-- create document.ready --- add the html in that doc then add the function//create an array -->
+          <% for(let data of allData) { %>
+
+            <section>
+              <article>
+                <div>
+                  <h3>
+                    <%= data.question %>
+                  </h3>
+                  <footer>
+                    <div>
+                      <%= data.catagory %>
+                    </div>
+                    <div>
+                      <%= data.date %>
+                    </div>
+                  </footer>
+                </div>
+              </article>
+
+              <% } %>
       </div>
     </section>
+
   </main>
   <br>
 
@@ -129,4 +99,5 @@
   </footer>
 
 </body>
+
 </html>

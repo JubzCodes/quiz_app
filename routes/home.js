@@ -5,7 +5,14 @@ const router = express.Router();
 module.exports = (db) => {
   router.get("/home", (req, res) => {
     //res.send("this is a test HOME!")
-    res.render("home");
+    console.log("DB QUERY IS RUNNING")
+    db.query("SELECT question, category, date FROM quiz")
+      .then(result => {
+        console.log(result.rows)
+        // console.log("question", result)
+        const templateVars = { allData: result.rows }
+        res.render("home", templateVars)
+      })
   })
 
   //This is for quiz attempt
