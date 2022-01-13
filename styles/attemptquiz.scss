@@ -1,23 +1,14 @@
 
 
 /* Style the content */
-.main {
+main {
   background-color: #4947C8;
   padding: 10px;
   height: 900px;
 }
 
-.labels {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 20px;
-  padding: 15px;
-}
-.labels p {
-  color: white;
-}
 
+// style the entire quiz area (which includes q&A)
 .quiz {
   display: flex;
   flex-direction: column;
@@ -39,23 +30,7 @@
   font-size: 20px;
 }
 
-#answer {
-  padding: 5px;
-}
 
-.flex-center {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.buttons button {
-  margin-left: 5px;
-}
-
-.hidden {
-  display: none;
 .quiz textarea:hover {
   background: #D6E6F4;
 }
@@ -67,18 +42,30 @@
   display: table;
 }
 
-
+// share and submit buttons div
 .buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  // justify-content: center;
+  align-items: center;
 }
 
+// style the category and date
+.category_date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding: 15px;
+}
+.category_date p {
+  color: white;
+}
 
 /* Style the footer */
 .footer {
-  background-color: rgb(226, 226, 226)
-  ;
+  background-color: rgb(226, 226, 226);
 }
 
 img {
@@ -90,6 +77,9 @@ img {
   margin-right: auto;
   margin-top: 10px;
   width: 50%;
+}
 
 
+.hidden {
+  display: none;
 }
