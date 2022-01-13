@@ -15,7 +15,7 @@ module.exports = (db) => {
     db.query(`INSERT INTO quiz (question, answer, category, date) VALUES ($1, $2, $3, current_timestamp)`, [question, answer, category])
       .then(result => {
         if (result) {
-          res.redirect('/home')
+          res.redirect('/home');
         }
         // console.log(result);
       })
@@ -28,7 +28,7 @@ module.exports = (db) => {
           );
         }
       });
-  })
+  });
 
   // quiz attempt: TODO?
   router.get("/attempt", (req, res) => {
@@ -38,6 +38,7 @@ module.exports = (db) => {
   // get all quiz answer
   router.get("/answers", async (req, res) => {
     const quizzInfo = await db.query(`SELECT answer FROM quiz`);
+
 
     res.json(quizzInfo.rows);
   });
@@ -64,6 +65,7 @@ module.exports = (db) => {
 
     res.render("attemptquiz", { id: quizzId, data: quizzInfo.rows });
   });
+
 
   return router;
 };

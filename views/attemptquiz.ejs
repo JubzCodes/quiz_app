@@ -2,8 +2,28 @@
 <html lang="en">
 
 <head>
-  <title>Do Quiz</title>
+  <title>ATTEMPT QUIZ</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/attemptquiz.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <!-- External Google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"
+    rel="stylesheet">
+
+  <!-- App JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- External JS -->
 </head>
 
 <body>
@@ -49,6 +69,74 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
     <script src="/scripts/quizAttempt.js"></script>
+
+    <!-- This is where we differ -->
+
+
+    <nav>
+      <%- include('partials/_navbar') %>
+    </nav>
+
+    <% for(let each of data) { %>
+      <main class="main">
+
+        <label for="quiz">
+          <h1 style="color:white; margin-top:30px">Try this Quiz!</h1>
+
+        </label>
+
+        <div>
+          <label for="name" style="color:white">Please enter a name</label>
+          <input type="text" name="name" placeholder="nickname" required />
+        </div>
+        <br>
+
+        <section>
+          <form class="form" method="post" action=" ">
+            <div class="quiz">
+              <p> QUIZ #
+                <%= id %>
+              </p>
+              <div>
+                <label for="question">
+                  <%= each.question %>
+                </label>
+              </div>
+              <br>
+
+              <div>
+                <textarea name="answer" placeholder="enter answer here" required></textarea>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="buttons">
+              <button>Share Quiz</button>
+              <button id=submit-new-quiz href="/quiz/attempt">Submit!</button>
+              <!-- this doesnt work beceause we need a post /quiz request -->
+            </div>
+          </form>
+        </section>
+
+        <section class="labels">
+          <p>
+            <%= each.category %>
+          </p>
+          <p>
+            <%= each.date %>
+          </p>
+
+        </section>
+      </main>
+      <% } %>
+
+        <footer>
+          <img src="https://miro.medium.com/max/810/1*7wcPoKrXNYBZYTvDcHxhhA.png" <br>
+          <p>Jan 2022 - Devendra, Jaden, Nadia</p>
+        </footer>
+
+
 </body>
 
 </html>

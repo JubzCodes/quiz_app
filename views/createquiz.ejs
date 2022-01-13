@@ -2,10 +2,28 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>CREATE A QUIZ</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/createquiz.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <!-- External Google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"
+    rel="stylesheet">
+
+  <!-- App JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- External JS -->
 </head>
 
 <body>
@@ -16,6 +34,108 @@
     <p><input type="text" name="category" placeholder="catagory" /></p>
     <button>Submit!</button>
   </form>
+
+  <!-- This is where we deffer -->
+
+  <!-- nav bar here -->
+  <nav>
+    <%- include('partials/_navbar') %>
+  </nav>
+
+  <main class="main">
+
+    <label for="create-quiz-form">
+      <h1 style="color:white; margin-top:50px"> MAKE A NEW QUIZ</h1>
+    </label>
+    <div id="create-quiz-form">
+      <form action="/quiz/new" method="POST">
+
+        <div>
+          <label for="question">Please enter a question here:</label>
+          <textarea name="question" placeholder="quiz question here" required></textarea>
+          <br>
+        </div>
+
+        <div>
+          <label for="answer">Enter an answer to the above question: </label>
+          <!-- <input type="text" name="answer" placeholder="enter an answer here" required/> -->
+          <textarea name="answer" placeholder="enter answer here" required></textarea>
+          <br>
+        </div>
+
+        <div id=quiz-settings>
+          <label> Please select a privacy setting for your quiz</label><br>
+
+          <input type="radio" name="privacy" value="choice-1" required />
+          <label for="privacy">Private</label>
+
+          <input type="radio" name="privacy" value="choice-2" required />
+          <label for="privacy">Public</label>
+          <br>
+        </div>
+
+        <div>
+          <label for="category">Choose a category:</label>
+          <!-- method1 -->
+          <!-- <select name=category onchange='checkvalue(this.value)' required> -->
+
+          <!-- method2 -->
+          <select name=category onchange="showfield(this.options[this.selectedIndex].value)" required>
+            <option value=“0” selected disabled></option>
+            <option value=“math”>Math</option>
+            <option value=“sci”>Science</option>
+            <option value=“eng”>English</option>
+            <option value=“art”>Art</option>
+            <option value=“geo”>Geography</option>
+            <option value=“lit”>Literature</option>
+            <option value=“other”>Other</option>
+          </select>
+          <!-- the following code + JS will create a textbox to display for the option other but need to revisit -->
+          <input type="text" name="category" id="category" style='display:none' />
+
+          <script type="text/javascript">
+            //   // Method 1
+            // function checkvalue(val) {
+            //   let element = document.getElementById('category')
+            //   if(val==="other")
+            //    element.style.display='block';
+            //   else
+            //    element.style.display='none';
+            // };
+            // Method 2
+            function showfield(name) {
+              let element = document.getElementById('category')
+              if (name == 'Other') element.innerHTML = 'Other: <input type="text" name="other" />';
+              else element.innerHTML = '';
+            };
+          </script>
+
+
+
+
+          <br>
+        </div>
+    </div>
+
+    <div class="buttons">
+      <button>Share Quiz</button>
+      <button id=submit-new-quiz href="/quiz">Submit!</button>
+      <!-- this doesnt work because we need a post /quiz route -->
+    </div>
+
+    </form>
+    </div>
+
+  </main>
+
+  <footer class=footer>
+    <p>
+      “To know that we know what we know, and to know that we do not know what we do not know, that is true knowledge."
+      - Nicolaus Copernicus
+    </p>
+    <br>
+    <p>Jan 2022 - Devendra, Jaden, Nadia</p>
+  </footer>
 
 </body>
 

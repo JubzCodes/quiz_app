@@ -4,6 +4,9 @@
 <head>
   <title>Home Page</title>
 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- App CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -11,6 +14,11 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <!-- External Google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"
+    rel="stylesheet">
 
 
 
@@ -21,67 +29,130 @@
 
 <body>
 
-  <header>
-    <!-- nav bar goes somewhere here inside the header-->
-    <a>CREATE |</a>
-    <a>HOME |</a>
-    <input id="searchbar" type="text" placeholder="Type in a Category" />
-    <a>SEARCH</a>
-  </header>
-  <hr>
+  <!-- nav bar-->
+  <%- include('partials/_navbar') %>
 
-  <!-- main container with all of the quizzes-->
-  <main>
+    <header>
+      <!-- nav bar goes somewhere here inside the header-->
+      <a>CREATE |</a>
+      <a>HOME |</a>
+      <input id="searchbar" type="text" placeholder="Type in a Category" />
+      <a>SEARCH</a>
+      <section class="header">
+        <h1>Welcome to QuikQuiz</h1>
+        <br>
+
+        <div>
+          <a id=tryRandom type="submit" href="/quiz">
+            <button>Try a QuikQuiz Now!</button>
+          </a>
+        </div>
+      </section>
+    </header>
+
+
+
+    <!-- main container with all of the quizzes-->
+    <main>
 
 
 
 
-    <section>
-      <h1>Welcome to QuikQuiz</h1>
-      <h1>
-      </h1>
-      <hr>
+      <section>
+        <h1>Welcome to QuikQuiz</h1>
+        <h1>
+        </h1>
+        <hr>
 
+      </section>
+      <div class="hidden" id="filteredQuizList"></div>
+      <div id="quizList">
+
+
+        <% for(let i=0; i < allData.length; i++) { %>
+
+          <section>
+            <article>
+              <div>
+                <h3>
+                  <%= allData[i].question %>
+                </h3>
+                <footer>
+                  <div>
+                    <%= allData[i].category %>
+                  </div>
+
+                </footer>
+              </div>
+            </article>
+
+            <% } %>
+      </div>
+
+      <!-- limit # of quizis to 6- 8 per page(stretch) -->
+      </section>
+    </main>
+    <!-- App JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/home.js"></script>
+
+
+    <section class="categories">
+      <p>Test your inner genius with instant quizzes on various topics!</p>
+      <article class="subject">
+        <div style="background-color:#D6E6F4; padding:10px">MATH</div>
+        <div style="background-color:#D6E6F4; padding:10px">ENGLISH</div>
+        <div style="background-color:#D6E6F4; padding:10px">SCIENCE</div>
+        <div style="background-color:#D6E6F4; padding:10px">AND MANY MORE!</div>
+      </article>
     </section>
-    <div class="hidden" id="filteredQuizList"></div>
-    <div id="quizList">
 
 
-      <% for(let i=0; i < allData.length; i++) { %>
+    <section class="quizzes">
+      <div class="row">
+        <h1>Click on any of the following boxes to try a Quik Quiz now!</h1>
+        <div class="column" style="background-color:#6563ce">
+          <!-- create document.ready --- add the html in that doc then add the function//create an array -->
+          <% for(let data of allData) { %>
 
-        <section>
-          <article>
-            <div>
-              <h3>
-                <%= allData[i].question %>
-              </h3>
-              <footer>
+            <section>
+              <article>
                 <div>
-                  <%= allData[i].category %>
+                  <h3>
+                    <%= data.question %>
+                  </h3>
+                  <footer>
+                    <div>
+                      <%= data.catagory %>
+                    </div>
+                    <div>
+                      <%= data.date %>
+                    </div>
+                  </footer>
                 </div>
+              </article>
 
-              </footer>
-            </div>
-          </article>
-
-          <% } %>
-    </div>
-
-    <!-- limit # of quizis to 6- 8 per page(stretch) -->
+              <% } %>
+        </div>
     </section>
-  </main>
-  <!-- App JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="/scripts/home.js"></script>
 
+    </main>
+    <br>
 
+    <footer class=footer>
+      <p>
+        “The only true wisdom is in knowing you know nothing.”― Socrates
+      </p>
+      <br>
+      <p>Jan 2022 - Devendra, Jaden, Nadia</p>
+    </footer>
 
-  <script>
-    var data = '<%- JSON.stringify(allData) %>'
-    initialize(data)
-  </script>
+    <script>
+      var data = '<%- JSON.stringify(allData) %>'
+      initialize(data)
+    </script>
 </body>
 
 </html>
