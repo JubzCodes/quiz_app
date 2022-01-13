@@ -14,22 +14,25 @@
   <div></div>
   <header></header>
   <br>
+  <% for(let data of allData) { %>
   <main class="main">
     <section class="labels">
-      <p>Category</p>
-      <p>File name</p>
-      <p>Date Created</p>
+      <p>
+        <%= data.question %>
+      </p>
+      <p>
+        <%= data.name %>
+      </p>
     </section>
     <br>
-    <form class="form" method="post" action=" ">
+    <form class="form" method="post" action="">
       <section class="quiz">
-        <h3>Question</h3>
-        <textarea></textarea>
+        <h3>FAIL!</h3>
       </section>
       <br>
+        <% } %>
       <section class="buttons">
         <button>Share Quiz</button>
-        <button>Submit</button>
       </section>
     </form>
   </main>
