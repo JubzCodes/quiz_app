@@ -15,28 +15,17 @@
   <!-- External Google fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"rel="stylesheet">
 
   <!-- App JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
   <!-- External JS -->
+
 </head>
 
 <body>
-  <h1> MAKE A NEW QUIZ</h1>
-  <form class="form-inline" action="/quiz/new" method="POST">
-    <p><input type="text" name="question" placeholder="question" /></p>
-    <p><input type="text" name="answer" placeholder="answer" /></p>
-    <p><input type="text" name="category" placeholder="catagory" /></p>
-    <button>Submit!</button>
-  </form>
-
-  <!-- This is where we deffer -->
-
   <!-- nav bar here -->
   <nav>
     <%- include('partials/_navbar') %>
@@ -52,14 +41,13 @@
 
         <div>
           <label for="question">Please enter a question here:</label>
-          <textarea name="question" placeholder="quiz question here" required></textarea>
+          <textarea name="question" placeholder="INPUT QUESTION HERE" required></textarea>
           <br>
         </div>
 
         <div>
-          <label for="answer">Enter an answer to the above question: </label>
-          <!-- <input type="text" name="answer" placeholder="enter an answer here" required/> -->
-          <textarea name="answer" placeholder="enter answer here" required></textarea>
+          <label for="answer">Enter the answer to the above question: </label>
+          <textarea name="answer" placeholder="INPUT DESIRED ANSWER HERE" required></textarea>
           <br>
         </div>
 
@@ -93,7 +81,7 @@
 
 
       <div class="buttons">
-        <button>Share Quiz</button>
+        <button>SHARE QUIZ</button>
         <button id=submit-new-quiz href="/quiz">CREATE QUIZ!</button>
         <!-- this doesnt work because we need a post /quiz route -->
       </div>
