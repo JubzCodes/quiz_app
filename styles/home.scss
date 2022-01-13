@@ -1,3 +1,74 @@
+/* nav bar is in layout*/
+
+// search bar stuff
+/* Style the search box inside the navigation bar */
+.navigator input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 15px;
+  margin-right: 15px;
+  font-size: 15px;
+  width: 25%;
+}
+
+
+
+/* Style the submit button */
+form.search-bar button {
+  float: right !important;
+  width: 8%;
+  height: 30px;
+  padding: 6px;
+  margin-top: 15px;
+  margin-right:15px;
+  background: #4947C8;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid grey;
+
+}
+
+form.search-bar button:hover {
+  background: #0b7dda;
+}
+
+/* Clear search bar after submission */
+form.search-bar::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .navigator a, .navigator input[type=text]  {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 80%;
+    margin: 20px 20px;
+    padding: 14px;
+  }
+  .navigator input[type=text] {
+    border: 1px solid #ccc;
+  }
+  form.search-bar button {
+    float: none;
+    display: block;
+    // text-align: right;
+    width: 10%;
+    margin: 20px 20px;
+    padding: 14px;
+  }
+}
+
+
+
+
+
+
 /* Style the header */
 header {
   width: 100%;
@@ -99,7 +170,7 @@ header h1 {
 
 }
 
-// what does this do?
+// this is for the searchBar it makes the original content hidden to show the search result
 .hidden {
   display: none;
 }

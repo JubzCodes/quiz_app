@@ -32,7 +32,21 @@
 
 <body>
   <!-- nav bar-->
-  <%- include('partials/_navbar') %>
+<nav>
+  <div class="navigator">
+    <form class="search-bar" action="/quiz">
+      <div>
+        <button id=search-button type="submit">SEARCH</button>
+      </div>
+      <input type="text" placeholder="Search a category..." name="search" required>
+
+
+      <a id=create href="/quiz/new">CREATE </a>
+      <a id=home href="/home">HOME </a>
+    </form>
+
+  </div>
+</nav>
 
   <header><h1>Welcome to QuikQuiz</h1></header>
 
