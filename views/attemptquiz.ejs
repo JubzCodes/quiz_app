@@ -2,9 +2,6 @@
 <html lang="en">
 
 <head>
-  <!-- <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <title>Do Quiz</title>
   <link rel="stylesheet" href="/styles/attemptquiz.css" type="text/css" />
 </head>
@@ -13,7 +10,7 @@
   <nav>NAV BAR</nav>
   <div></div>
   <header></header>
-  <br>
+  <br />
   <!-- this is a for a git push, delete after -->
   <% for(let each of data) { %>
     <main class="main">
@@ -21,30 +18,37 @@
         <p>
           <%= each.category %>
         </p>
-        <p> QUIZ #
-          <%= id %>
+        <p>QUIZ # <%= id %>
         </p>
         <p>
           <%= each.date %>
         </p>
       </section>
-      <br>
-      <form class="form" method="post" action=" ">
+      <br />
+      <form class="form" id="quizForm">
         <section class="quiz">
           <h3>
-
             <%= each.question %>
           </h3>
-          <textarea></textarea>
+          <input type="text" id="answer" placeholder="answer" />
           <% } %>
         </section>
-        <br>
-        <section class="buttons">
-          <button>Share Quiz</button>
-          <button>Submit</button>
+        <br />
+        <section class="buttons flex-center">
+          <button id="shareQuiz" type="button">Share Quiz</button>
+          <button id="submitQuiz" type="button">Submit</button>
         </section>
       </form>
+      <div id='resultSection' class="flex-center hidden">
+        <h3 id="resultCaption"></h3>
+        <section class="buttons flex-center">
+          <button id="next" type="button">Next</button>
+        </section>
+        <div>
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script src="/scripts/quizAttempt.js"></script>
 </body>
 
 </html>

@@ -1,29 +1,46 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
+  // create new quiz
   router.get("/new", (req, res) => {
-    res.render("createquiz")
-  })
+    res.render("createquiz");
+  });
 
+  // quiz attempt: TODO?
   router.get("/attempt", (req, res) => {
-    res.render("attempt_results")
-  })
-  router.get("/:id", (req, res) => {
-    console.log(req.params)
-    const { id } = req.params
-    // res.send(`ID ${id}`)
+    res.render("attempt_results");
+  });
 
-    db.query(`SELECT  question, category, date FROM quiz WHERE id = ${id}`)
-      .then(result => {
-        console.log(result.rows)
+  // get all quiz answer
+  router.get("/answers", async (req, res) => {
+    const quizzInfo = await db.query(`SELECT answer FROM quiz`);
 
-        // console.log("question", result)
-        res.render("attemptquiz", { id, data: result.rows })
-      })
-  })
+    res.json(quizzInfo.rows);
+  });
 
-  //ADD SQL TO ADD INFO TO DATABASE
-  //this is for git
+  // get quiz answer
+  router.get("/answers/:id", async (req, res) => {
+    const quizzId = req.params.id;
+
+    if (!quizzId) req.json({ message: "missing ID" });
+
+    const quizzInfo = await db.query(
+      `SELECT answer FROM quiz WHERE id=${quizzId}`
+    );
+
+    res.json(quizzInfo.rows[0]);
+  });
+
+  // attempt quiz by id
+  router.get("/:id", async (req, res) => {
+    const quizzId = req.params.id;
+    const quizzInfo = await db.query(
+      `SELECT  question, category, date FROM quiz WHERE id = ${quizzId}`
+    );
+
+    res.render("attemptquiz", { id: quizzId, data: quizzInfo.rows });
+  });
+
   return router;
 };

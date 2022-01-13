@@ -7,14 +7,13 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <!-- <link rel="stylesheet" href="/styles/home.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/styles/home.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <!-- External Google fonts-->
 
-  <!-- App JS -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+
+
 
   <!-- External JS -->
 
@@ -26,41 +25,65 @@
     <!-- nav bar goes somewhere here inside the header-->
     <a>CREATE |</a>
     <a>HOME |</a>
+    <input id="searchbar" type="text" placeholder="Type in a Category" />
     <a>SEARCH</a>
   </header>
   <hr>
 
   <!-- main container with all of the quizzes-->
   <main>
+
+
+
+
     <section>
       <h1>Welcome to QuikQuiz</h1>
+      <h1>
+      </h1>
       <hr>
+
     </section>
-    <% for(let data of allData) { %>
+    <div class="hidden" id="filteredQuizList"></div>
+    <div id="quizList">
 
-      <section>
-        <article>
-          <div>
-            <h3>
-              <%= data.question %>
-            </h3>
-            <footer>
-              <div>
-                <%= data.catagory %>
-              </div>
-              <div>
-                <%= data.date %>
-              </div>
-            </footer>
-          </div>
-        </article>
 
-        <% } %>
+      <% for(let data of allData) { %>
 
-          <!-- limit # of quizis to 6- 8 per page(stretch) -->
-      </section>
+        <section>
+          <article>
+            <div>
+              <h3>
+                <%= data.question %>
+              </h3>
+              <footer>
+                <div>
+                  <%= data.category %>
+                </div>
+                <div>
+                  <%= moment(data.date).format("yyyy-MM-DD hh:mm:ss") %>
+                </div>
+              </footer>
+            </div>
+          </article>
+
+          <% } %>
+    </div>
+
+    <!-- limit # of quizis to 6- 8 per page(stretch) -->
+    </section>
   </main>
+  <!-- App JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/home.js"></script>
 
+
+
+  <script>
+    var data = '<%- JSON.stringify(allData) %>'
+    initialize(data)
+  </script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
   <!-- <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-  <title>Do Quiz</title>
+  <title>QUIZ Result</title>
   <link rel="stylesheet" href="/styles/attemptresults.css" type="text/css" />
 </head>
 
@@ -13,26 +13,25 @@
   <nav>NAV BAR</nav>
   <div></div>
   <header></header>
-  <br>
-  <main class="main">
-    <section class="labels">
-      <p>Category</p>
-      <p>File name</p>
-      <p>Date Created</p>
-    </section>
-    <br>
-    <form class="form" method="post" action=" ">
-      <section class="quiz">
-        <h3>Question</h3>
-        <textarea></textarea>
-      </section>
-      <br>
-      <section class="buttons">
-        <button>Share Quiz</button>
-        <button>Submit</button>
-      </section>
-    </form>
-  </main>
+
+  <% for(let each of data) { %>}
+    <main class="main">
+
+      <p>
+        <%= each.name %>
+      </p>
+      <p>
+        Passed QUIZ: <%= each.result %>
+      </p>
+
+      <% } %>
+
+
+        <section class="buttons">
+          <button>Share Attempt</button>
+        </section>
+        </form>
+    </main>
 </body>
 
 </html>

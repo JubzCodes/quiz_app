@@ -10,8 +10,21 @@
   align-items: center;
 }
 
-.buttons {
+#answer {
+  padding: 5px;
+}
+
+.flex-center {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons button {
+  margin-left: 5px;
+}
+
+.hidden {
+  display: none;
 }
