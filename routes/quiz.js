@@ -66,6 +66,5 @@ module.exports = (db) => {
     res.render("attemptquiz", { id: quizzId, data: quizzInfo.rows });
   });
 
-
   return router;
 };
