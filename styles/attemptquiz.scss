@@ -4,7 +4,7 @@
 .main {
   background-color: #4947C8;
   padding: 10px;
-  height: 800px;
+  height: 900px;
 }
 
 .labels {
@@ -13,6 +13,9 @@
   justify-content: space-around;
   margin-top: 20px;
   padding: 15px;
+}
+.labels p {
+  color: white;
 }
 
 .quiz {
