@@ -52,6 +52,7 @@ module.exports = (db) => {
     const answer = req.body.answer;
     const name = req.body.name;
     const id = req.params.id;
+    const url = `${req.headers.host}/quiz/${id}`;
     db.query(`SELECT answer FROM quiz WHERE id = $1 AND answer ILIKE $2`, [id, answer])
     .then(result => {
       console.log(result)
@@ -59,15 +60,15 @@ module.exports = (db) => {
         db.query(`INSERT INTO results (quiz_id, result, name) VALUES ($1, $2, $3)`, [id,true, name]);
         db.query(`SELECT question, results.name FROM quiz JOIN results ON quiz_id = ${id} WHERE quiz.id = ${id}`)
         .then(info => {
-          const templateVars = {allData: info.rows}
+          const templateVars = {allData: info.rows, textBox: url}
           res.render("attempt_pass", templateVars)
         })
       } else {
         db.query(`INSERT INTO results (quiz_id, result, name) VALUES ($1, $2, $3)`, [id,false, name]);
         db.query(`SELECT name, quiz.question FROM results JOIN quiz ON quiz.id = quiz_id WHERE quiz.id = ${id}`)
         .then(info => {
-          const templateVars = {allData: info.rows}
-          res.render("attempt_pass", templateVars)
+          const templateVars = {allData: info.rows, textBox: url}
+          res.render("attempt_fail", templateVars)
         })
       }
     })

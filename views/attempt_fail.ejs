@@ -6,7 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <title>Do Quiz</title>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <link rel="stylesheet" href="/styles/attemptquiz.css" type="text/css" />
+  <script type="text/javascript" src="/scripts/client.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
 </head>
 
 <body>
@@ -29,13 +32,17 @@
       <section class="quiz">
         <h3>FAIL!</h3>
       </section>
+    </form>
       <br>
         <% } %>
       <section class="buttons">
-        <button>Share Quiz</button>
+        <!-- <div onclick="copy_button();"> -->
+        <button class="btn" data-clipboard-target="#value">Share Quiz</button>
+        <input id="value" value="<%= textBox%>">
+        <!-- <%= textBox%> -->
+        <!-- </div> -->
       </section>
-    </form>
   </main>
 </body>
-
+<script type="text/javascript"> new ClipboardJS(".btn"); </script>
 </html>

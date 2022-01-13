@@ -1,41 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <!-- <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-  <title>Do Quiz</title>
-  <link rel="stylesheet" href="/styles/attemptquiz.css" type="text/css" />
-</head>
+  <head>
+    <!-- <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+      <title>Do Quiz</title>
+      <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+      <link rel="stylesheet" href="/styles/attemptquiz.css" type="text/css" />
+      <script type="text/javascript" src="/scripts/client.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    </head>
 
-<body>
-  <nav>NAV BAR</nav>
-  <div></div>
-  <header></header>
-  <br>
-  <% for(let data of allData) { %>
-  <main class="main">
-    <section class="labels">
-      <p>
-        <%= data.question %>
-      </p>
-      <p>
-        <%= data.name %>
-      </p>
-    </section>
-    <br>
-    <form class="form" method="post" action="">
-      <section class="quiz">
-        <h3>PASS!</h3>
-      </section>
+    <body>
+      <nav>NAV BAR</nav>
+      <div></div>
+      <header></header>
       <br>
-        <% } %>
-      <section class="buttons">
-        <button>Share Quiz</button>
-      </section>
-    </form>
-  </main>
-</body>
+      <% for(let data of allData) { %>
+        <main class="main">
+          <section class="labels">
+            <p>
+              <%= data.question %>
+            </p>
+            <p>
+              <%= data.name %>
+            </p>
+          </section>
+          <br>
+          <form class="form" method="post" action="">
+            <section class="quiz">
+              <h3>PASS!</h3>
+            </section>
+            <br>
+            <% } %>
+          </form>
+          <section class="buttons">
+            <!-- <div onclick="copy_button();"> -->
+              <button class="btn" data-clipboard-target= "#value">Share Quiz</button>
+              <input id="value" value="<%= textBox%>">
+              <!-- <%= textBox%> -->
+              <!-- </div> -->
+            </section>
+          </main>
+          <!-- <script>
+            function copy_button() {
+              const url = window.location.href;
+              $("#value").text(url);
+              // return url;
+            }
+          </script> -->
 
+          <!-- <script>
+            function copy_button() {
+              const url = window.location.href;
+              let temp = "<input id=\"copy_to_clipboard\" value=\"" + url + "\" />"
+              $("body").append(temp);
+              $("#copy_to_clipboard").select();
+              document.execCommand("copy");
+              $("#copy_to_clipboard").remove();
+            }
+          </script> -->
+
+        </body>
+        <script type="text/javascript"> new ClipboardJS(".btn"); </script>
 </html>
