@@ -15,67 +15,54 @@
   <!-- External Google fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap" rel="stylesheet">
 
   <!-- App JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script src="/scripts/quizAttempt.js"></script>
 
   <!-- External JS -->
 </head>
 
 <body>
-  <nav>NAV BAR</nav>
-  <div></div>
-  <header></header>
-
-  <% for(let each of data) { %>}
-    <main class="main">
-
-      <p>
-        <%= each.name %>
-      </p>
-
-      <% if(each.result) { %>
-
-        <%= "RESULT: PASS" %>
-
-          <% }else { %>
-            <%= "RESULT: FAIL" %>
-
-              <% } %>
-
-
-                <% } %>
-
-
-                  <section class="buttons">
-                    <button>Share Attempt</button>
-                  </section>
-                  </form>
-    </main>
-    <!-- This is where we differ -->
-
-    <nav>
-      <%- include('partials/_navbar') %>
-    </nav>
+    <nav><%- include('partials/_navbar') %></nav>
 
     <br>
     <main>
 
       <section class="score">
+        <% for(let each of data) { %>
+
+        <div><p><h3><%= each.name %>'s score:</h3></p></div>
+
+        <div>
+          <% if(each.result) { %>
+            <!-- <%= "RESULT: PASS" %> -->
+            <p style="color:rgb(0, 255, 0); font-weight:bold; font-size:50px;">
+              <%= "RESULT: PASS" %>
+            </p>
+
+          <% } else { %>
+            <!-- <%= "RESULT: FAIL" %> -->
+            <p style="color:rgb(255, 0, 0); font-weight:bold; font-size:50px;">
+              <%= "RESULT: FAIL" %>
+            </p>
+          <% } %>
+        </div>
+
         <h3>SCORE</h3>
 
-        <p style="color:rgb(0, 255, 0); font-weight:bold; font-size:50px;">PASS</p>
-        <p style="color:rgb(255, 0, 0); font-weight:bold; font-size:50px;">FAIL</p>
+        <% } %>
+
 
       </section>
+
 
     <br>
 
     <section class="buttons">
+
       <div>
         <!-- this currently redirects to home page but we need to copy to clipboard feature -->
         <a id=tryRandom type="submit" href="/"
@@ -92,6 +79,7 @@
         TRY ANOTHER QUIZ
         </a>
       </div>
+
     </section>
 
     </main>
@@ -102,6 +90,7 @@
       <br>
       <p>Jan 2022 - Devendra, Jaden, Nadia</p>
     </footer>
+
 </body>
 
 </html>
