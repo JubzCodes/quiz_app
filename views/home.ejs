@@ -61,45 +61,47 @@
 
     <section class = "quizzes">
       <div class="row">
-        <h1>Click on any of the following boxes to try a Quik Quiz now!</h1>
+        <h2>Click on any of the following boxes to try a Quik Quiz now!</h2>
         <!-- <div class="column" style="background-color:#6563ce"> -->
-        <div style="background-color:#6563ce"></div>
-<!-- create document.ready --- add the html in that doc then add the function//create an array -->
+          <div style="background-color:#6563ce"></div>
 
-
-
-
-                <!-- Column1 -->
-
-              <section>
-                  <% for(let i=0; i < 3; i++) { %>
-                    <% let colour = i % 2 === 0 ? "#6563ce" : "#79c0e0" %>
-                    <!-- //create if statemenets for color depending value of i "#66D6F7" -->
-                      <div id= "col<%=i%>" class="column" style="background-color:<%= colour %>">
-
-
-                    <article>
-                      <div>
-                        <a id=quiz-question href="/quiz/<%= allData[i].id %>">
-                          <% console.log(allData[i]) %>
-                          <h3>
-                            <%= allData[i].question %>
-                          </h3>
-                        </a>
-
-                        <footer>
-                          <div>
-                            <%= allData[i].category %>
-                          </div>
-                        </footer>
+          <section>
+            <!-- change i < 6 when we have 6 quizzes in database -->
+            <% for(let i=0; i < 6; i++) { %>
+              <!-- <% let colour = i % 2 === 0 ? "#6563ce" : "#79c0e0" %> -->
+              <!-- //create if statemenets for color depending value of i -->
+              <%
+              if (i === 0 && i === 4) {
+                colour = "#6563ce";
+              } else if (i === 1 && i === 5) {
+                colour = "#66D6F7";
+              } else if (i === 2 && i === 3) {
+                colour = "#79c0e0";
+              }%>
+              <div id= "col<%=i%>" class="column" style="background-color:<%= colour %>">
+                <article>
+                  <div>
+                    <a id=quiz-question href="/quiz/<%= allData[i].id %>">
+                      <!-- <% console.log(allData[i]) %> -->
+                      <%= allData[i].question %>
+                    </a>
+                    <footer>
+                      <%= allData[i].category %>
+                    </footer>
                       </div>
                     </article>
                   </div>
                     <% } %>
-        </section>
-<!-- display 6 and randomize them -->
+          </section>
 
+
+    </section>
   </main>
+
+<!-- figure out how to display 6 quizzes and randomize them -->
+
+
+
   <br>
 
   <footer class=footer>
