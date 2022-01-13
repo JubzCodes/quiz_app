@@ -7,7 +7,7 @@ module.exports = (db) => {
   router.get("/home", (req, res) => {
     //res.send("this is a test HOME!")
     console.log("DB QUERY IS RUNNING")
-    db.query("SELECT question, category, date FROM quiz WHERE is_public = true")
+    db.query("SELECT question, category, date FROM quiz WHERE is_public = true ORDER BY id DESC")
       .then(result => {
         console.log(result.rows)
         // console.log("question", result)

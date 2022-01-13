@@ -7,6 +7,29 @@ module.exports = (db) => {
     res.render("createquiz");
   });
 
+  //POST request for new quiz
+  router.post("/new", (req, res) => {
+    const question = req.body.question;
+    const answer = req.body.answer;
+    const category = req.body.category;
+    db.query(`INSERT INTO quiz (question, answer, category, date) VALUES ($1, $2, $3, current_timestamp)`, [question, answer, category])
+      .then(result => {
+        if (result) {
+          res.redirect('/home')
+        }
+        // console.log(result);
+      })
+      .catch(err => {
+        if (err) {
+          return (
+            res
+              .status(500)
+              .json({ error: err.message })
+          );
+        }
+      });
+  })
+
   // quiz attempt: TODO?
   router.get("/attempt", (req, res) => {
     res.render("attempt_results");

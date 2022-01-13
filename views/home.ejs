@@ -47,21 +47,19 @@
     <div id="quizList">
 
 
-      <% for(let data of allData) { %>
+      <% for(let i=0; i < allData.length; i++) { %>
 
         <section>
           <article>
             <div>
               <h3>
-                <%= data.question %>
+                <%= allData[i].question %>
               </h3>
               <footer>
                 <div>
-                  <%= data.category %>
+                  <%= allData[i].category %>
                 </div>
-                <div>
-                  <%= moment(data.date).format("yyyy-MM-DD hh:mm:ss") %>
-                </div>
+
               </footer>
             </div>
           </article>

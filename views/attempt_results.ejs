@@ -20,17 +20,24 @@
       <p>
         <%= each.name %>
       </p>
-      <p>
-        Passed QUIZ: <%= each.result %>
-      </p>
 
-      <% } %>
+      <% if(each.result) { %>
+
+        <%= "RESULT: PASS" %>
+
+          <% }else { %>
+            <%= "RESULT: FAIL" %>
+
+              <% } %>
 
 
-        <section class="buttons">
-          <button>Share Attempt</button>
-        </section>
-        </form>
+                <% } %>
+
+
+                  <section class="buttons">
+                    <button>Share Attempt</button>
+                  </section>
+                  </form>
     </main>
 </body>
 
