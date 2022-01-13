@@ -45,11 +45,12 @@
     <section>
       <form class = "form" method="post" action=" ">
         <div class = "quiz">
-          <p> QUIZ #
+          <!-- <p>
+            QUIZ #
             <%= id %>
-          </p>
+          </p> -->
           <div>
-            <label for="question">
+            <label for="question" style="font-size:40px;">
               <%= each.question %>
             </label>
           </div>
@@ -64,7 +65,11 @@
 
         <div class = "buttons">
           <button>Share Quiz</button>
-          <button id=submit-new-quiz href="/quiz/attempt">Submit!</button>
+          <a id=submit-new-quiz href="/quiz/attempt">
+            <button>Submit!</button>
+          </a>
+
+
           <!-- this doesnt work beceause we need a post /quiz request -->
         </div>
         </form>

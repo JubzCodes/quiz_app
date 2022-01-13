@@ -62,30 +62,42 @@
     <section class = "quizzes">
       <div class="row">
         <h1>Click on any of the following boxes to try a Quik Quiz now!</h1>
-        <div class="column" style="background-color:#6563ce">
+        <!-- <div class="column" style="background-color:#6563ce"> -->
+        <div style="background-color:#6563ce"></div>
 <!-- create document.ready --- add the html in that doc then add the function//create an array -->
-          <% for(let data of allData) { %>
 
-            <section>
-              <article>
-                <div>
-                  <h3>
-                    <%= data.question %>
-                  </h3>
-                  <footer>
-                    <div>
-                      <%= data.category %>
-                    </div>
-                    <!-- <div>
-                      <%= data.date %>
-                    </div> -->
-                  </footer>
-                </div>
-              </article>
 
-              <% } %>
-      </div>
-    </section>
+
+
+                <!-- Column1 -->
+
+              <section>
+                  <% for(let i=0; i < 3; i++) { %>
+                    <% let colour = i % 2 === 0 ? "#6563ce" : "#79c0e0" %>
+                    <!-- //create if statemenets for color depending value of i "#66D6F7" -->
+                      <div id= "col<%=i%>" class="column" style="background-color:<%= colour %>">
+
+
+                    <article>
+                      <div>
+                        <a id=quiz-question href="/quiz/<%= allData[i].id %>">
+                          <% console.log(allData[i]) %>
+                          <h3>
+                            <%= allData[i].question %>
+                          </h3>
+                        </a>
+
+                        <footer>
+                          <div>
+                            <%= allData[i].category %>
+                          </div>
+                        </footer>
+                      </div>
+                    </article>
+                  </div>
+                    <% } %>
+        </section>
+<!-- display 6 and randomize them -->
 
   </main>
   <br>
