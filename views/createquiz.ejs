@@ -52,21 +52,18 @@
         <div id=quiz-settings>
           <label> Please select a privacy setting for your quiz</label><br>
 
-          <input type="radio" name="privacy" value="choice-1" required/>
+          <input type="radio" name="privacy" value="This option will not allow your quiz to be published on the home page nor accessible to people unless with the URL. Make sure to save it!" required/>
           <label for="privacy">Private</label>
 
-          <input type="radio" name="privacy" value="choice-2" required/>
+          <input type="radio" name="privacy" value="This confirms that you're good with it going public!" required/>
           <label for="privacy">Public</label>
           <br>
         </div>
 
         <div>
           <label for="category">Choose a category:</label>
-          <!-- method1 -->
-          <!-- <select name=category onchange='checkvalue(this.value)' required> -->
-
-            <!-- method2 -->
-          <select name=category onchange="showfield(this.options[this.selectedIndex].value)" required>
+          <!-- <select name=category onchange='checkCategory(this.value);' required> -->
+          <select name=category required>
             <option value=“0” selected disabled></option>
             <option value=“math”>Math</option>
             <option value=“sci”>Science</option>
@@ -75,33 +72,11 @@
             <option value=“geo”>Geography</option>
             <option value=“lit”>Literature</option>
             <option value=“other”>Other</option>
-            </select>
-            <!-- the following code + JS will create a textbox to display for the option other but need to revisit -->
-            <input type="text" name="category" id="category" style='display:none'/>
-
-  <script type="text/javascript">
-  //   // Method 1
-  // function checkvalue(val) {
-  //   let element = document.getElementById('category')
-  //   if(val==="other")
-  //    element.style.display='block';
-  //   else
-  //    element.style.display='none';
-  // };
-// Method 2
-  function showfield(name){
-  let element= document.getElementById('category')
-  if(name=='Other')element.innerHTML='Other: <input type="text" name="other" />';
-  else element.innerHTML='';
-  };
-  </script>
+          </select>
+        <br>
+        </div>
 
 
-
-
-      <br>
-    </div>
-      </div>
 
       <div class="buttons">
         <button>Share Quiz</button>
@@ -111,10 +86,9 @@
 
     </form>
   </div>
-
 </main>
 
-<footer class=footer>
+<footer class=footer style="background-color: #f1f1f1">
   <p>
     “To know that we know what we know, and to know that we do not know what we do not know, that is true knowledge." - Nicolaus Copernicus
   </p>

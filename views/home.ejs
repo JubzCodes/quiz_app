@@ -70,15 +70,6 @@
 
               <!-- //create if statements for color depending value of i (the following ternary operator is for two colors) -->
               <% let colour = i % 2 === 0 ? "#66D6F7" : "#79c0e0" %>
-<!-- could not figure out how to get this if statement to generate three colours so we sticking to two -->
-              <%
-              if (i === 0 && i === 4) {
-                let colour = "#6563ce";
-              } else if (i === 1 && i === 5) {
-                let colour = "#66D6F7";
-              } else if (i === 2 && i === 3) {
-                let colour = "#79c0e0";
-              }%>
               <div id= "col<%=i%>" class="column" style="background-color:<%= colour %>">
                 <article>
                   <div>
