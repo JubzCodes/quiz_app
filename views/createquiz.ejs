@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>CREATE A QUIZ</title>
+  <title>CREATE A QUIZ</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,9 @@
   <!-- External Google fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"
+    rel="stylesheet">
 
   <!-- App JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -25,29 +27,41 @@
 </head>
 
 <body>
+  <h1> MAKE A NEW QUIZ</h1>
+  <form class="form-inline" action="/quiz/new" method="POST">
+    <p><input type="text" name="question" placeholder="question" /></p>
+    <p><input type="text" name="answer" placeholder="answer" /></p>
+    <p><input type="text" name="category" placeholder="catagory" /></p>
+    <button>Submit!</button>
+  </form>
+
+  <!-- This is where we deffer -->
+
   <!-- nav bar here -->
-  <nav> <%- include('partials/_navbar') %></nav>
+  <nav>
+    <%- include('partials/_navbar') %>
+  </nav>
 
-<main class = "main">
+  <main class="main">
 
-  <label for="create-quiz-form">
-    <h1 style="color:white; margin-top:50px"> MAKE A NEW QUIZ</h1>
-  </label>
-  <div id="create-quiz-form">
-    <form action="/quiz/new" method="POST">
+    <label for="create-quiz-form">
+      <h1 style="color:white; margin-top:50px"> MAKE A NEW QUIZ</h1>
+    </label>
+    <div id="create-quiz-form">
+      <form action="/quiz/new" method="POST">
 
-      <div>
-        <label for="question">Please enter a question here:</label>
-        <textarea name="question" placeholder="quiz question here" required></textarea>
-        <br>
-      </div>
+        <div>
+          <label for="question">Please enter a question here:</label>
+          <textarea name="question" placeholder="quiz question here" required></textarea>
+          <br>
+        </div>
 
-      <div>
-        <label for="answer">Enter an answer to the above question: </label>
-        <!-- <input type="text" name="answer" placeholder="enter an answer here" required/> -->
-        <textarea name="answer" placeholder="enter answer here" required></textarea>
-        <br>
-      </div>
+        <div>
+          <label for="answer">Enter an answer to the above question: </label>
+          <!-- <input type="text" name="answer" placeholder="enter an answer here" required/> -->
+          <textarea name="answer" placeholder="enter answer here" required></textarea>
+          <br>
+        </div>
 
         <div id=quiz-settings>
           <label> Please select a privacy setting for your quiz</label><br>

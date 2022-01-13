@@ -9,6 +9,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 
+
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
@@ -17,6 +18,7 @@ const dbParams = require("./lib/db.js");
 const homeRoute = require("./routes/home")
 const quizRoute = require("./routes/quiz")
 const userRoute = require("./routes/users")
+const resultRoutes = require("./routes/results")
 
 
 const db = new Pool(dbParams);
@@ -27,7 +29,7 @@ db.connect();
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan("dev"));
-
+app.use(express.json())
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -58,6 +60,8 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/", homeRoute(db));
 //CREATE ROUTE*********
 app.use("/quiz", quizRoute(db));
+//RESULTS ROUTE********
+app.use("/results", resultRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -67,7 +71,7 @@ app.use("/quiz", quizRoute(db));
 //this is a test
 
 app.get("/", (req, res) => {
-  res.redirect("/home");
+  res.redirect("home");
 });
 
 app.listen(PORT, () => {

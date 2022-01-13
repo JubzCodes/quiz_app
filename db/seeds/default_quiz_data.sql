@@ -19,4 +19,3 @@ INSERT INTO quiz (question, answer, category, date, Is_public, quiz_url )
 
 INSERT INTO quiz (question, answer, category, date, Is_public, quiz_url )
  VALUES ('What was the name of the journalist that co-wrote "The Autobiography of Malcolm X"?', 'Alex Harley', 'Literature' , CURRENT_TIMESTAMP, true, NULL);
-

@@ -16,11 +16,12 @@
   <!-- External Google fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"
+    rel="stylesheet">
 
-  <!-- App JS -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+
+
 
   <!-- External JS -->
 
@@ -28,26 +29,76 @@
 
 <body>
 
-    <!-- nav bar-->
-    <%- include('partials/_navbar') %>
+  <!-- nav bar-->
+  <%- include('partials/_navbar') %>
 
-  <header>
-    <section class="header">
-      <h1>Welcome to QuikQuiz</h1>
-      <br>
+    <header>
+      <!-- nav bar goes somewhere here inside the header-->
+      <a>CREATE |</a>
+      <a>HOME |</a>
+      <input id="searchbar" type="text" placeholder="Type in a Category" />
+      <a>SEARCH</a>
+      <section class="header">
+        <h1>Welcome to QuikQuiz</h1>
+        <br>
 
-      <div>
-        <a id=tryRandom type="submit" href="/quiz">
-          <button >Try a QuikQuiz Now!</button>
-        </a>
+        <div>
+          <a id=tryRandom type="submit" href="/quiz">
+            <button>Try a QuikQuiz Now!</button>
+          </a>
+        </div>
+      </section>
+    </header>
+
+
+
+    <!-- main container with all of the quizzes-->
+    <main>
+
+
+
+
+      <section>
+        <h1>Welcome to QuikQuiz</h1>
+        <h1>
+        </h1>
+        <hr>
+
+      </section>
+      <div class="hidden" id="filteredQuizList"></div>
+      <div id="quizList">
+
+
+        <% for(let i=0; i < allData.length; i++) { %>
+
+          <section>
+            <article>
+              <div>
+                <h3>
+                  <%= allData[i].question %>
+                </h3>
+                <footer>
+                  <div>
+                    <%= allData[i].category %>
+                  </div>
+
+                </footer>
+              </div>
+            </article>
+
+            <% } %>
       </div>
-    </section>
-  </header>
+
+      <!-- limit # of quizis to 6- 8 per page(stretch) -->
+      </section>
+    </main>
+    <!-- App JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/home.js"></script>
 
 
-
-  <!-- main container with all of the quizzes-->
-  <main>
     <section class="categories">
       <p>Test your inner genius with instant quizzes on various topics!</p>
       <article class="subject">
@@ -101,9 +152,19 @@
       “The only true wisdom is in knowing you know nothing.”― Socrates
     </p>
     <br>
-    <p>Jan 2022 - Devendra, Jaden, Nadia</p>
-  </footer>
 
+    <footer class=footer>
+      <p>
+        “The only true wisdom is in knowing you know nothing.”― Socrates
+      </p>
+      <br>
+      <p>Jan 2022 - Devendra, Jaden, Nadia</p>
+    </footer>
+
+    <script>
+      var data = '<%- JSON.stringify(allData) %>'
+      initialize(data)
+    </script>
 </body>
 
 </html>

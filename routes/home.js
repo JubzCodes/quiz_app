@@ -1,6 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
+const moment = require('moment');
 //This is out home page
 module.exports = (db) => {
   router.get("/home", (req, res) => {
@@ -12,7 +13,10 @@ module.exports = (db) => {
       .then(result => {
         console.log(result.rows)
         // console.log("question", result)
-        const templateVars = { allData: result.rows }
+        const templateVars = {
+          allData: result.rows,
+          moment
+        }
         res.render("home", templateVars)
       })
   })
@@ -22,6 +26,13 @@ module.exports = (db) => {
     res.render("attemptquiz")
   })
 
+  //Endpoint for Search
+  router.get("/search", async (req, res) => {
+    const searchTerm = req.query.search
+    const filteredQuiz = await db.query(`SELECT question, category, date FROM quiz WHERE is_public = true AND category LIKE '%${searchTerm}%' `)
+    res.json(filteredQuiz.rows)
+
+  })
 
 
 

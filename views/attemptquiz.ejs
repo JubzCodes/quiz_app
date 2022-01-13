@@ -15,7 +15,9 @@
   <!-- External Google fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"
+    rel="stylesheet">
 
   <!-- App JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -25,38 +27,68 @@
 </head>
 
 <body>
-
-  <nav> <%- include('partials/_navbar') %></nav>
-
+  <nav>NAV BAR</nav>
+  <div></div>
+  <header></header>
+  <br />
+  <!-- this is a for a git push, delete after -->
   <% for(let each of data) { %>
-  <main class = "main">
+    <main class="main">
+      <section class="labels">
+        <p>
+          <%= each.category %>
+        </p>
+        <p>QUIZ # <%= id %>
+        </p>
+        <p>
+          <%= each.date %>
+        </p>
+      </section>
+      <br />
+      <form class="form" id="quizForm">
+        <section class="quiz">
+          <h3>
+            <%= each.question %>
+          </h3>
+          <input type="text" id="answer" placeholder="answer" />
+          <% } %>
+        </section>
+        <br />
+        <section class="buttons flex-center">
+          <button id="shareQuiz" type="button">Share Quiz</button>
+          <button id="submitQuiz" type="button">Submit</button>
+        </section>
+      </form>
+      <div id='resultSection' class="flex-center hidden">
+        <h3 id="resultCaption"></h3>
+        <section class="buttons flex-center">
+          <button id="next" type="button">Next</button>
+        </section>
+        <div>
+    </main>
 
-    <label for="quiz">
-      <h1 style="color:white; margin-top:30px">Try this Quiz!</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script src="/scripts/quizAttempt.js"></script>
 
-    </label>
+    <!-- This is where we differ -->
 
-    <div>
-      <label for="name" style="color:white">Please enter a name</label>
-      <input type="text" name="name" placeholder="nickname" required/>
-    </div>
-    <br>
 
-    <section>
-      <form class = "form" method="post" action=" ">
-        <div class = "quiz">
-          <div>
-            <label for="question" style="font-size:40px;">
-              <%= each.question %>
-            </label>
-          </div>
-          <br>
+    <nav>
+      <%- include('partials/_navbar') %>
+    </nav>
 
-          <div>
-            <textarea name="answer" placeholder="enter answer here" required></textarea>
-          </div>
+    <% for(let each of data) { %>
+      <main class="main">
+
+        <label for="quiz">
+          <h1 style="color:white; margin-top:30px">Try this Quiz!</h1>
+
+        </label>
+
+        <div>
+          <label for="name" style="color:white">Please enter a name</label>
+          <input type="text" name="name" placeholder="nickname" required />
         </div>
-
         <br>
 
         <div class = "buttons">
@@ -78,13 +110,50 @@
     </section>
   </main>
   <% } %>
+        <section>
+          <form class="form" method="post" action=" ">
+            <div class="quiz">
+              <p> QUIZ #
+                <%= id %>
+              </p>
+              <div>
+                <label for="question">
+                  <%= each.question %>
+                </label>
+              </div>
+              <br>
 
-  <footer>
-    <img src="https://miro.medium.com/max/810/1*7wcPoKrXNYBZYTvDcHxhhA.png"
+              <div>
+                <textarea name="answer" placeholder="enter answer here" required></textarea>
+              </div>
+            </div>
 
-    <br>
-    <p>Jan 2022 - Devendra, Jaden, Nadia</p>
-  </footer>
+            <br>
+
+            <div class="buttons">
+              <button>Share Quiz</button>
+              <button id=submit-new-quiz href="/quiz/attempt">Submit!</button>
+              <!-- this doesnt work beceause we need a post /quiz request -->
+            </div>
+          </form>
+        </section>
+
+        <section class="labels">
+          <p>
+            <%= each.category %>
+          </p>
+          <p>
+            <%= each.date %>
+          </p>
+
+        </section>
+      </main>
+      <% } %>
+
+        <footer>
+          <img src="https://miro.medium.com/max/810/1*7wcPoKrXNYBZYTvDcHxhhA.png" <br>
+          <p>Jan 2022 - Devendra, Jaden, Nadia</p>
+        </footer>
 
 
 </body>

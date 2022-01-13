@@ -15,19 +15,55 @@
   <!-- External Google fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"
+    rel="stylesheet">
 
   <!-- App JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
-  <!-- External JS --></head>
+  <!-- External JS -->
+</head>
 
 <body>
-  <nav><%- include('partials/_navbar') %></nav>
+  <nav>NAV BAR</nav>
+  <div></div>
+  <header></header>
 
-  <br>
-  <main>
+  <% for(let each of data) { %>}
+    <main class="main">
+
+      <p>
+        <%= each.name %>
+      </p>
+
+      <% if(each.result) { %>
+
+        <%= "RESULT: PASS" %>
+
+          <% }else { %>
+            <%= "RESULT: FAIL" %>
+
+              <% } %>
+
+
+                <% } %>
+
+
+                  <section class="buttons">
+                    <button>Share Attempt</button>
+                  </section>
+                  </form>
+    </main>
+    <!-- This is where we differ -->
+
+    <nav>
+      <%- include('partials/_navbar') %>
+    </nav>
+
+    <br>
+    <main>
 
       <section class="score">
         <h3>SCORE</h3>
@@ -58,14 +94,14 @@
       </div>
     </section>
 
-  </main>
+    </main>
 
 
-  <footer class=footer>
-    <img src="https://miro.medium.com/max/1062/1*MrwxBQCtoacBEFkStaGprA.png">
-    <br>
-    <p>Jan 2022 - Devendra, Jaden, Nadia</p>
-  </footer>
+    <footer class=footer>
+      <img src="https://miro.medium.com/max/1062/1*MrwxBQCtoacBEFkStaGprA.png">
+      <br>
+      <p>Jan 2022 - Devendra, Jaden, Nadia</p>
+    </footer>
 </body>
 
 </html>

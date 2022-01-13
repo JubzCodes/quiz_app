@@ -39,6 +39,23 @@
   font-size: 20px;
 }
 
+#answer {
+  padding: 5px;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons button {
+  margin-left: 5px;
+}
+
+.hidden {
+  display: none;
 .quiz textarea:hover {
   background: #D6E6F4;
 }
