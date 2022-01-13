@@ -1,26 +1,59 @@
-// body {
-//   font-family: 'Roboto', sans-serif;
-
-/* Navigator moved to layout page" */
-
 /* Style the header */
-.header {
+header {
   width: 100%;
-  height:500px;
+  height: 800px;
   background-color:  #6563ce;
-  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
   color:white;
   padding: 30px;
   font-family: 'Ribeye', cursive;
+  font-size:75px;
+  animation-name: homescreen;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes homescreen {
+//   from {background-color: #26264d;}
+//   // to {background-color: #c7c6f8;}
+//   to {background-color:#0b7dda;}
+//
+0%   {background-color: #26264d;}
+25%  {background-color: #6563ce;}
+50%  {background-color: #c7c6f8;}
+100% {background-color: #0b7dda;}
+}
+
+header h1 {
   text-align: center;
+  animation: pop 1s ease-in-out;
+  animation-delay: 1.2s;
+}
+
+@keyframes pop {
+  50%  {
+    transform: scale(1.75);
+  }
 }
 
 /* Style the categories section*/
+.categories {
+  background-color: #F2F2F2;
+  background-color: #6563ce;
+  padding: 20px;
+  height: 200px;
+}
 
 .subject {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+.subject div {
+  background-color:#D6E6F4;
+  padding:10px;
+  font-style: italic;
+  font-weight: bold;
 }
 
 
@@ -48,28 +81,25 @@
   }
 }
 
-
-.categories {
-  background-color: #F2F2F2;
-  padding: 10px;
-  height: 150px;
-
-  }
-
 .quizzes {
   text-align: center;
-  // height:600px;
+  // this edits the color of h2 and categories but not the questions
+  color:black;
+  font-weight: bold;
 }
 
 #quiz-question {
-  font-size: 25px;
+  font-size: 35px;
   color:white;
 }
 
+.row footer {
+  font-style: italic;
+  margin: 50px 50px;
 
+}
 
-
-
+// what does this do?
 .hidden {
   display: none;
 }

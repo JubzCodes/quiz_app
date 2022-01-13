@@ -16,155 +16,88 @@
   <!-- External Google fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,400;0,700;1,100;1,300&display=swap" rel="stylesheet">
 
-
-
+  <!-- App JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/home.js"></script>
 
   <!-- External JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+
 
 </head>
 
 <body>
-
   <!-- nav bar-->
   <%- include('partials/_navbar') %>
 
-    <header>
-      <!-- nav bar goes somewhere here inside the header-->
-      <a>CREATE |</a>
-      <a>HOME |</a>
-      <input id="searchbar" type="text" placeholder="Type in a Category" />
-      <a>SEARCH</a>
-      <section class="header">
-        <h1>Welcome to QuikQuiz</h1>
-        <br>
-
-        <div>
-          <a id=tryRandom type="submit" href="/quiz">
-            <button>Try a QuikQuiz Now!</button>
-          </a>
-        </div>
-      </section>
-    </header>
+  <header><h1>Welcome to QuikQuiz</h1></header>
 
 
+  <section class="categories">
+    <p style="color:white; font-size:30px; font-weight:bold;">Test your inner genius with instant quizzes on various topics!</p>
+    <article class="subject">
+      <div >MATH</div>
+      <div >ENGLISH</div>
+      <div >SCIENCE</div>
+      <div >AND MANY MORE!</div>
+    </article>
+  </section>
 
-    <!-- main container with all of the quizzes-->
-    <main>
+<main>
+  <section class = "quizzes">
+    <div class="row" >
+      <h2>Click on any of the following to try a Quik Quiz now!</h2>
+      <!-- <div class="column" style="background-color:#6563ce"> -->
 
 
+        <div class="hidden" id="filteredQuizList"></div>
+        <section>
+          <!-- change i < 6 when we have 6 quizzes in database -->
+          <% for(let i=0; i < 6; i++) { %>
 
+            <!-- //create if statements for color depending value of i (the following ternary operator is for two colors) -->
+            <% let color = i % 2 === 0 ? "#66D6F7" : "#79c0e0" %>
+            <div id= "col<%=i%>" class="column" style="background-color:<%= color %>">
 
-      <section>
-        <h1>Welcome to QuikQuiz</h1>
-        <h1>
-        </h1>
-        <hr>
+              <article>
+                <div>
+                  <a id=quiz-question href="/quiz/<%= allData[i].id %>">
+                    <!-- <% console.log(allData[i]) %> -->
+                    <%= allData[i].question %>
+                  </a>
 
-      </section>
-      <div class="hidden" id="filteredQuizList"></div>
-      <div id="quizList">
-
-
-        <% for(let i=0; i < allData.length; i++) { %>
-
-          <section>
-            <article>
-              <div>
-                <h3>
-                  <%= allData[i].question %>
-                </h3>
-                <footer>
-                  <div>
+                  <footer>
                     <%= allData[i].category %>
-                  </div>
-
-                </footer>
-              </div>
-            </article>
-
-            <% } %>
-      </div>
-
-      <!-- limit # of quizis to 6- 8 per page(stretch) -->
-      </section>
-    </main>
-    <!-- App JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/home.js"></script>
-
-
-    <section class="categories">
-      <p>Test your inner genius with instant quizzes on various topics!</p>
-      <article class="subject">
-        <div style="background-color:#D6E6F4; padding:10px">MATH</div>
-        <div style="background-color:#D6E6F4; padding:10px">ENGLISH</div>
-        <div style="background-color:#D6E6F4; padding:10px">SCIENCE</div>
-        <div style="background-color:#D6E6F4; padding:10px">AND MANY MORE!</div>
-      </article>
-    </section>
-
-
-    <section class = "quizzes">
-      <div class="row" >
-        <h2>Click on any of the following to try a Quik Quiz now!</h2>
-        <!-- <div class="column" style="background-color:#6563ce"> -->
-
-          <section>
-            <!-- change i < 6 when we have 6 quizzes in database -->
-            <% for(let i=0; i < 6; i++) { %>
-
-              <!-- //create if statements for color depending value of i (the following ternary operator is for two colors) -->
-              <% let color = i % 2 === 0 ? "#66D6F7" : "#79c0e0" %>
-              <div id= "col<%=i%>" class="column" style="background-color:<%= color %>">
-                <article>
-                  <div>
-                    <a id=quiz-question href="/quiz/<%= allData[i].id %>">
-                      <!-- <% console.log(allData[i]) %> -->
-                      <%= allData[i].question %>
-                    </a>
-                    <footer>
-                      <%= allData[i].category %>
-                    </footer>
-                      </div>
-                    </article>
-                  </div>
-                    <% } %>
-          </section>
-
-
-    </section>
+                  </footer>
+                </div>
+              </article>
+            </div>
+          <% } %>
+        </section>
   </main>
 
-<!-- figure out how to display 6 quizzes and randomize them -->
 
 
 
-  <br>
 
   <footer class=footer>
     <p>
       “The only true wisdom is in knowing you know nothing.”― Socrates
     </p>
     <br>
+    <p>Jan 2022 - Devendra, Jaden, Nadia</p>
+  </footer>
 
-    <footer class=footer>
-      <p>
-        “The only true wisdom is in knowing you know nothing.”― Socrates
-      </p>
-      <br>
-      <p>Jan 2022 - Devendra, Jaden, Nadia</p>
-    </footer>
-
+  <!-- what does this do? -->
     <script>
       var data = '<%- JSON.stringify(allData) %>'
       initialize(data)
     </script>
+
 </body>
 
 </html>
