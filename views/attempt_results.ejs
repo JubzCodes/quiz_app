@@ -11,32 +11,42 @@
 </head>
 
 <body>
+  <nav>
+    <div class="navigator">
+      <a id=home href="/home">HOME </a>
+      <br>
+      <a id=create href="/quiz/new">CREATE </a>
 
-  <% for(let each of data) { %>}
+    </div>
+  </nav>
+
+  <% for(let each of data) { %>
     <main class="main">
 
-      <p>
-        <%= each.name %>
-      </p>
+      <h2>
+        Name: <%= each.name %>
+      </h2>
 
-      <% if(each.result) { %>
+      <h1>
 
-        <%= "RESULT: PASS" %>
+        <% if(each.result) { %>
 
-          <% }else { %>
-            <%= "RESULT: FAIL" %>
+          <%= "RESULT: PASS" %>
 
-              <% } %>
-
+            <% }else { %>
+              <%= "RESULT: FAIL" %>
 
                 <% } %>
 
 
-                  <section class="buttons">
-                    <button class="btn" data-clipboard-target="#value">Share URL</button>
-                    <input id="value" value="<%= textBox%>">
-                  </section>
-                  </form>
+                  <% } %>
+      </h1>
+
+      <section class="buttons">
+        <button class="btn" data-clipboard-target="#value">Share URL</button>
+        <input id="value" value="<%= textBox%>">
+      </section>
+      </form>
     </main>
 </body>
 <script type="text/javascript"> new ClipboardJS(".btn"); </script>
