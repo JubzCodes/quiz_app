@@ -27,7 +27,9 @@ searchInput.addEventListener('keyup', async function (event) {
   console.log(filteredQuiz)
   let quizListContent = filteredQuiz.map(quiz => `
   <div>
-    <h3> ${quiz.question}</h3>
+  <a  href="/quiz/${quiz.id}">
+  ${quiz.question}
+</a>
     <div>
       <div>${quiz.category}</div>
       <div>${moment(quiz.date).format("yyyy-MM-DD hh:mm:ss")}</div>
