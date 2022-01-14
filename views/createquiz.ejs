@@ -6,14 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
 <body>
   <h1> MAKE A NEW QUIZ</h1>
-  <form class="form-inline" action="/new" method="POST">
+  <form class="form-inline" action="/quiz/new" method="POST">
     <p><input type="text" name="question" placeholder="question" /></p>
     <p><input type="text" name="answer" placeholder="answer" /></p>
     <p><input type="text" name="category" placeholder="catagory" /></p>
+    <!-- <p><input type="text" name="privacy" placeholder="catagory" /></p> -->
+    <div id=quiz-settings>
+      <label> Please select a privacy setting for your quiz</label><br>
+
+      <input type="radio" name="privacy" value="false" required />
+      <label for="privacy">Private</label>
+
+      <input type="radio" name="privacy" value="true" required />
+      <label for="privacy">Public</label>
+      <br>
+    </div>
     <button>Submit!</button>
   </form>
 

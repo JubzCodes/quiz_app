@@ -5,6 +5,6 @@ question VARCHAR(255),
 answer VARCHAR(255),
 category VARCHAR(255),
 date TIMESTAMP,
-Is_public BOOLEAN,
+is_public BOOLEAN,
 quiz_url VARCHAR(255)
 );

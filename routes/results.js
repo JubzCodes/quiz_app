@@ -32,11 +32,12 @@ module.exports = (db) => {
   // attempt result by id
   router.get("/:id", async (req, res) => {
     const resultId = req.params.id;
+    const url = `${req.headers.host}/results/${resultId}`;
     const resultInfo = await db.query(
       `SELECT  result, name FROM results WHERE id = ${resultId}`
     );
 
-    res.render("attempt_results", { id: resultId, data: resultInfo.rows });
+    res.render("attempt_results", { id: resultId, data: resultInfo.rows, textBox: url });
   });
 
   return router;

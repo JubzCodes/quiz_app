@@ -1,4 +1,5 @@
 const searchInput = document.getElementById("searchbar")
+console.log(searchInput)
 const quizListElement = document.getElementById("quizList")
 const filteredQuizList = document.getElementById("filteredQuizList")
 
@@ -17,8 +18,12 @@ searchInput.addEventListener('keyup', async function (event) {
     filteredQuizList.classList.add("hidden")
   }
 
-
-  filteredQuiz = quizList.filter(quiz => quiz.category.includes(searchValue))
+  console.log(quizList)
+  filteredQuiz = quizList.filter(quiz => {
+    console.log(quiz)
+    console.log(searchValue)
+    return quiz.category.includes(searchValue)
+  })
   console.log(filteredQuiz)
   let quizListContent = filteredQuiz.map(quiz => `
   <div>
@@ -36,5 +41,8 @@ searchInput.addEventListener('keyup', async function (event) {
 })
 
 const initialize = function (data) {
+  console.log(data)
+  // console.log(JSON.stringify(data))
+  // quizList = data
   quizList = JSON.parse(data)
 }

@@ -7,12 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <title>QUIZ Result</title>
   <link rel="stylesheet" href="/styles/attemptresults.css" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
 </head>
 
 <body>
-  <nav>NAV BAR</nav>
-  <div></div>
-  <header></header>
 
   <% for(let each of data) { %>}
     <main class="main">
@@ -20,18 +18,27 @@
       <p>
         <%= each.name %>
       </p>
-      <p>
-        Passed QUIZ: <%= each.result %>
-      </p>
 
-      <% } %>
+      <% if(each.result) { %>
+
+        <%= "RESULT: PASS" %>
+
+          <% }else { %>
+            <%= "RESULT: FAIL" %>
+
+              <% } %>
 
 
-        <section class="buttons">
-          <button>Share Attempt</button>
-        </section>
-        </form>
+                <% } %>
+
+
+                  <section class="buttons">
+                    <button class="btn" data-clipboard-target="#value">Share URL</button>
+                    <input id="value" value="<%= textBox%>">
+                  </section>
+                  </form>
     </main>
 </body>
+<script type="text/javascript"> new ClipboardJS(".btn"); </script>
 
 </html>

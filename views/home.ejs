@@ -23,8 +23,8 @@
 
   <header>
     <!-- nav bar goes somewhere here inside the header-->
-    <a>CREATE |</a>
-    <a>HOME |</a>
+    <a href="quiz/new">CREATE</a>
+    <!-- <a href="/">HOME</a> -->
     <input id="searchbar" type="text" placeholder="Type in a Category" />
     <a>SEARCH</a>
   </header>
@@ -47,23 +47,22 @@
     <div id="quizList">
 
 
-      <% for(let data of allData) { %>
+      <% for(let i=0; i < allData.length; i++) { %>
 
         <section>
           <article>
             <div>
-              <h3>
-                <%= data.question %>
-              </h3>
-              <footer>
-                <div>
-                  <%= data.category %>
-                </div>
-                <div>
-                  <%= moment(data.date).format("yyyy-MM-DD hh:mm:ss") %>
-                </div>
-              </footer>
+              <a id=quiz-question href="/quiz/<%= allData[i].id %>">
+                <% console.log(allData) %>
+                  <%= allData[i].question %>
+              </a>
             </div>
+
+            <div>
+              <%= allData[i].category %>
+            </div>
+
+
           </article>
 
           <% } %>
@@ -73,15 +72,17 @@
     </section>
   </main>
   <!-- App JS -->
+  <script type="text/javascript" src="/scripts/home.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="/scripts/home.js"></script>
 
 
 
   <script>
     var data = '<%- JSON.stringify(allData) %>'
+    var data2 = '<%- allData %>'
+    console.log(data2)
     initialize(data)
   </script>
 </body>
