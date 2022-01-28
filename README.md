@@ -8,7 +8,7 @@ Similar to a twitter's live feed, each quiz that's created (one question and one
 
 This project was a collaborate effort by [Devendra Chitanna](https://github.com/DevendraChitanna), [Nadia Kasim](https://github.com/canadiankay) and [Jaden King](https://github.com/JubzCodes). 
 
-<p>*Note*: the final functioning features of this project are on the branch [**finalComplete**](https://github.com/JubzCodes/quiz_app/tree/finalComplete). In the coming weeks, we will be working on integrating the front-end designs and styling with the finished products. See below. <p>
+###### *Note*: the final functioning features of this project are on the branch [**finalComplete**](https://github.com/JubzCodes/quiz_app/tree/finalComplete). In the coming weeks, we will be working on integrating the front-end designs and styling with the finished products. See below.
 
 
 ## Project Setup && Getting Started
@@ -29,7 +29,7 @@ This project was a collaborate effort by [Devendra Chitanna](https://github.com/
 ## Current Project 
 
 #### Home Page 
-![Screenshot of homepage-nav bar and header](docs/homepage-nav bar and header.png)
+![Screenshot of homepage-nav bar and header](docs/homepage.png)
 
 ![Screenshot of homepage-list of newest quizzes](docs/homepage-newestquizzes.png)
 
